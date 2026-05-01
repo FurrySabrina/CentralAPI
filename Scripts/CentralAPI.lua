@@ -16,7 +16,7 @@ local function includeMethods(target, source)
     end
 end
 
-CentralAPI = CentralAPI or class()
+CentralAPI = class()
 
 includeMethods(CentralAPI, GUI)
 includeMethods(CentralAPI, Status)
@@ -64,7 +64,8 @@ end
 --================================== Server ==================================--
 --------------------------------------------------------------------------------
 
-function CentralAPI:server_onCreate()
+function CentralAPI:server_onCreate(_, remote)
+    if self:sv_detectClientCheat("server_onCreate", remote) then return end
     local success, err = pcall(function()
         sm.log.info("CentralAPI:server_onCreate()")
         self.sv = {} -- create global server variables
@@ -73,11 +74,12 @@ function CentralAPI:server_onCreate()
     end)
     if not success then
         sm.log.error("CentralAPI:server_onCreate() " .. err)
-        self:sv_onStatusSet("ERROR", true, true)
+        self:sv_onStatusSet({ status = "ERROR", active = true })
     end
 end
 
-function CentralAPI:server_onRefresh()
+function CentralAPI:server_onRefresh(_, remote)
+    if self:sv_detectClientCheat("server_onRefresh", remote) then return end
     local success, err = pcall(function()
         sm.log.info("CentralAPI:server_onRefresh()")
         self:sv_onStatusRefresh()
@@ -85,11 +87,12 @@ function CentralAPI:server_onRefresh()
     end)
     if not success then
         sm.log.error("CentralAPI:server_onRefresh() " .. err)
-        self:sv_onStatusSet("ERROR", true, true)
+        self:sv_onStatusSet({ status = "ERROR", active = true })
     end
 end
 
-function CentralAPI:checkScripts(dt)
+function CentralAPI:checkScripts(dt, remote)
+    if self:sv_detectClientCheat("checkScripts", remote) then return end
     -- checks for if the scripts reloaded
     if sm.game.getCurrentTick() % 20 ~= 0 then return end -- check every 20 ticks
     dofile("$CONTENT_DATA/Scripts/GUI.lua")
@@ -102,13 +105,14 @@ function CentralAPI:checkScripts(dt)
     includeMethods(CentralAPI, Settings)
 end
 
-function CentralAPI:server_onFixedUpdate(dt)
+function CentralAPI:server_onFixedUpdate(dt, remote)
+    if self:sv_detectClientCheat("server_onFixedUpdate", remote) then return end
     local success, err = pcall(function()
         self:checkScripts(dt)
     end)
     if not success then
         sm.log.error("CentralAPI:server_onFixedUpdate() " .. err)
-        self:sv_onStatusSet("ERROR", true, true)
+        self:sv_onStatusSet({ status = "ERROR", active = true })
     end
 end
 

@@ -161,7 +161,8 @@ local SETTINGS_DATA = {
 --================================== Server ==================================--
 --------------------------------------------------------------------------------
 
-function Settings:sv_onSettingsCreate()
+function Settings:sv_onSettingsCreate(_, remote)
+    if self:sv_detectClientCheat({ remote = remote, funcName = "sv_onSettingsCreate" }) then return end
     sm.log.info("Settings:sv_onCreate()")
     self.sv.settingsData = {
         settings = {
@@ -176,14 +177,16 @@ function Settings:sv_onSettingsCreate()
     }
 end
 
-function Settings:sv_onSettingsRefresh()
+function Settings:sv_onSettingsRefresh(_, remote)
+    if self:sv_detectClientCheat({ remote = remote, funcName = "sv_onSettingsRefresh" }) then return end
     sm.log.info("Settings:sv_onRefresh()")
     self.sv.settingsData = {}
     self.sv.settingsData.settings = generateSettings(50)
     self:sv_sendClientsSettings()
 end
 
-function Settings:sv_onResetSettings(player)
+function Settings:sv_onResetSettings(player, remote)
+    if remote ~= self.sv.hostPlayer then return end
     sm.log.info("Settings:sv_onResetSettings()")
     if self.sv.hostPlayer ~= player then return end
     for _, setting in pairs(self.sv.settingsData.settings) do
@@ -192,7 +195,8 @@ function Settings:sv_onResetSettings(player)
     self:sv_sendClientsSettings()
 end
 
-function Settings:sv_sendClientsSettings(except)
+function Settings:sv_sendClientsSettings(except, remote)
+    if self:sv_detectClientCheat({ remote = remote, funcName = "sv_sendClientsSettings" }) then return end
     sm.log.info("Settings:sv_sendClientsSettings()")
     for _, player in pairs(sm.player.getAllPlayers()) do
         if self:ifInTable(except, player) then goto continue end
@@ -211,7 +215,8 @@ function Settings:sv_sendClientsSettings(except)
     end
 end
 
-function Settings:sv_onGetSetting(name)
+function Settings:sv_onGetSetting(name, remote)
+    if self:sv_detectClientCheat({ remote = remote, funcName = "sv_onGetSetting" }) then return end
     sm.log.info("Settings:sv_onGetSetting()")
     if not name then return end
     for i, setting in pairs(self.sv.settingsData.settings) do
@@ -222,7 +227,8 @@ function Settings:sv_onGetSetting(name)
     return nil
 end
 
-function Settings:sv_onGetSettingIndex(name)
+function Settings:sv_onGetSettingIndex(name, remote)
+    if self:sv_detectClientCheat({ remote = remote, funcName = "sv_onGetSettingIndex" }) then return end
     sm.log.info("Settings:sv_onGetSettingIndex()")
     if not name then return end
     for i, setting in pairs(self.sv.settingsData.settings) do
@@ -232,43 +238,32 @@ function Settings:sv_onGetSettingIndex(name)
     end
 end
 
-function Settings:sv_onSettingChangedByClient(args)
+function Settings:sv_onSettingChangedByClient(args, remote)
     sm.log.info("Settings:sv_onSettingChanged()")
-    if not args then
-        sm.log.info("Settings:sv_onSettingChanged() args is nil")
-        self:sv_onStatusSet("INFO", true)
-        return
-    end
-    if not args.player then
-        sm.log.info("Settings:sv_onSettingChanged() args.player is nil")
-        self:sv_onStatusSet("INFO", true)
-        return
-    end
-    if not args.setting then
-        sm.log.info("Settings:sv_onSettingChanged() args.setting is nil")
-        self:sv_onStatusSet("INFO", true)
-        return
-    end
+    if not args then return end
+    if type(args) ~= "table" then return end
+    if not args.setting then return end
+    if type(args.setting) ~= "table" then return end
+    if not args.setting.name then return end
+    if args.setting.value == nil then return end
+
     local serverSetting = self:sv_onGetSetting(args.setting.name)
-    if not serverSetting then
-        sm.log.info("Settings:sv_onSettingChanged() serverSetting is nil")
-        self:sv_onStatusSet("INFO", true)
-        return
-    end
+
+    if not serverSetting or type(serverSetting) ~= "table" then return end
     
-    if serverSetting.clientEditable == false and self.sv.hostPlayer ~= args.player then
-        sm.log.warning("Settings:sv_onSettingChanged() client sent setting that is not editable")
-        self:sv_onStatusSet("WARNING", true)
+    if serverSetting.clientEditable == false and self.sv.hostPlayer ~= remote then
+        sm.log.warning("Settings:sv_onSettingChanged() "..remote.name.." sent setting that is not editable")
+        self:sv_onStatusSet({ status = "WARNING", active = true })
         return
     end
 
-    if serverSetting.clientViewable == false and self.sv.hostPlayer ~= args.player then
-        sm.log.warning("Settings:sv_onSettingChanged() client sent setting that is not viewable")
-        self:sv_onStatusSet("WARNING", true)
+    if serverSetting.clientViewable == false and self.sv.hostPlayer ~= remote then
+        sm.log.warning("Settings:sv_onSettingChanged() "..remote.name.." sent setting that is not viewable")
+        self:sv_onStatusSet({ status = "WARNING", active = true })
         return
     end
     serverSetting.value = args.setting.value
-    self:sv_sendClientsSettings({args.player})
+    self:sv_sendClientsSettings({remote})
 end
 
 

@@ -21,7 +21,8 @@ local STATUS_PROPERTIES = {
 --================================== Server ==================================--
 --------------------------------------------------------------------------------
 
-function Status:sv_onStatusCreate()
+function Status:sv_onStatusCreate(_, remote)
+    if self:sv_detectClientCheat({ remote = remote, funcName = "sv_onStatusCreate" }) then return end
     sm.log.info("Status:sv_onStatusCreate()")
     self.sv.status = {}
     self.sv.status.statuses = {}
@@ -30,17 +31,21 @@ function Status:sv_onStatusCreate()
     end
 end
 
-function Status:sv_onStatusRefresh()
+function Status:sv_onStatusRefresh(_, remote)
+    if self:sv_detectClientCheat({ remote = remote, funcName = "sv_onStatusRefresh" }) then return end
     sm.log.info("Status:sv_onStatusRefresh()")
     self.sv.status = {}
     self.sv.status.statuses = {}
     for status, properties in pairs(STATUS_PROPERTIES) do
         self.sv.status.statuses[status] = properties.default or false
     end
-    self:sv_onStatusSet("DEBUG", true)
+    self:sv_onStatusSet({ status = "DEBUG", active = true })
 end
 
-function Status:sv_onStatusSet(status, active)
+function Status:sv_onStatusSet(data, remote)
+    if self:sv_detectClientCheat("sv_onStatusSet", remote) then return end
+    local status = data.status or "OFF"
+    local active = data.active or false
     sm.log.info("Status:sv_onStatusSet() " .. status .. " " .. tostring(active))
     if self.sv.status.statuses[status] == nil then
         sm.log.error("Status:sv_onStatusSet() " .. status .. " cant find status")
@@ -53,17 +58,24 @@ function Status:sv_onStatusSet(status, active)
     self.network:sendToClients("cl_onReceiveServerStatus", self.sv.status.statuses)
 end
 
-function Status:sv_onClientRequestStatus(args)
-    local status = args.status
-    local active = args.active
-    sm.log.info("Status:sv_onClientRequestStatus() " .. status .. " " .. tostring(active))
-    self:sv_onStatusSet(status, active)
+function Status:sv_onClientRequestStatus(args, remote)
+    if not args then return end
+    if type(args) ~= "table" then return end
+    if not args.status then return end
+    if not args.active then return end
+    if type(args.status) ~= "string" then return end
+    if type(args.active) ~= "boolean" then return end
+    sm.log.info("Status:sv_onClientRequestStatus() " .. args.status .. " " .. tostring(args.active))
+    self:sv_onStatusSet({ status = args.status, active = args.active })
 end
 
-function Status:sv_onResetStatus(player)
+function Status:sv_onResetStatus(_, remote)
+    if self.sv.hostPlayer ~= remote then
+        return
+    else
+        if self:sv_detectClientCheat("sv_onResetStatus", remote) then return end
+    end
     sm.log.info("Status:sv_onResetStatus()")
-    if not player then return end
-    if self.sv.hostPlayer ~= player then return end
     for status, properties in pairs(STATUS_PROPERTIES) do
         if status ~= "DEBUG" then
             self.sv.status.statuses[status] = properties.default or false
@@ -161,5 +173,5 @@ end
 
 function Status:cl_onResetStatus()
     sm.log.info("Status:sv_onResetStatus()")
-    self.network:sendToServer("sv_onResetStatus", sm.localPlayer.getPlayer())
+    self.network:sendToServer("sv_onResetStatus")
 end

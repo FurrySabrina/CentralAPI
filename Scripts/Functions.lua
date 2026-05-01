@@ -1,4 +1,4 @@
-Functions = Functions or class()
+Functions = class()
 
 function Functions:getTableCount(table)
     local count = 0
@@ -17,7 +17,8 @@ function Functions:ifInTable(table, value)
     return false
 end
 
-function Functions:sv_onGetHostPlayer()
+function Functions:sv_onGetHostPlayer(_,remote)
+    if self:sv_detectClientCheat({ remote = remote, funcName = "sv_onGetHostPlayer" }) then return end
     sm.log.info("Functions:sv_onGetHostPlayer()")
     if self.sv.hostPlayer then return self.sv.hostPlayer end
     if #sm.player.getAllPlayers() == 1 then return sm.player.getAllPlayers()[1]
@@ -28,13 +29,9 @@ function Functions:sv_onGetHostPlayer()
     return nil
 end
 
-function Functions:sv_sendHostPlayerRequest(player)
+function Functions:sv_sendHostPlayerRequest(_, remote)
     sm.log.info("Functions:sv_sendHostPlayerRequest()")
-    if not player then return end
-    if not self.sv.hostPlayer then
-        self.sv.hostPlayer = self:sv_onGetHostPlayer()
-    end
-    self.network:sendToClient(player, "cl_onReceiveHostPlayer", self.sv.hostPlayer)
+    self.network:sendToClient(remote, "cl_onReceiveHostPlayer", self.sv.hostPlayer)
 end
 
 function Functions:cl_onRequestHostPlayer()
@@ -86,4 +83,11 @@ function Functions:lerpColor(start, end_, t)
     local G = sm.util.lerp(start.g, end_.g, t)
     local B = sm.util.lerp(start.b, end_.b, t)
     return sm.color.new(R, G, B)
+end
+
+function Functions:sv_detectClientCheat(funcName, remote)
+    if remote == nil then return false end -- only blocks client side
+    if funcName == nil then funcName = "sv_detectClientCheat" end
+    sm.log.warning("Functions:detectClientCheat() " .. funcName .. " called by " .. remote.name)
+    return true -- blocks any more code
 end
