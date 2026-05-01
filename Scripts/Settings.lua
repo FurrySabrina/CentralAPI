@@ -153,7 +153,6 @@ local SETTINGS_DATA = {
     orginalColor = sm.color.new("#FFD449"),
     appliedColor = sm.color.new("#32C85A"),
     fadeTime = 1,
-    nonEditableColor = sm.color.new("#FFB020"),
     nonViewableColor = sm.color.new("#3A86FF")
 }
 
@@ -573,7 +572,7 @@ function Settings:cl_onOpenSettings()
             local colorHex = ""
 
             if not setting.clientViewable then
-                colorHex = "#3A86FF"      -- server only / hidden from client
+                colorHex = self:colorToHex(SETTINGS_DATA.nonViewableColor)      -- server only / hidden from client
             end
 
             layout:setText(prefix .. "Name", colorHex .. setting.name)
