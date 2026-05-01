@@ -26,7 +26,6 @@ local chances = {
         floatDevision = {low = 1, high = 1000}
     },
     slider = 0.3,
-    clientEditable = 0.4,
     clientViewable = 0.2
 }
 
@@ -74,7 +73,6 @@ local function generateSettings(count)
     for i = 1, count do
         local setting = {
             name = randomName(),
-            clientEditable = math.random() > chances.clientEditable,
             clientViewable = math.random() > chances.clientViewable
         }
 
@@ -154,7 +152,9 @@ local SETTINGS_DATA = {
     },
     orginalColor = sm.color.new("#FFD449"),
     appliedColor = sm.color.new("#32C85A"),
-    greenFadeTime = 1 -- seconds
+    fadeTime = 1,
+    nonEditableColor = sm.color.new("#FFB020"),
+    nonViewableColor = sm.color.new("#3A86FF")
 }
 
 --------------------------------------------------------------------------------
@@ -250,12 +250,6 @@ function Settings:sv_onSettingChangedByClient(args, remote)
     local serverSetting = self:sv_onGetSetting(args.setting.name)
 
     if not serverSetting or type(serverSetting) ~= "table" then return end
-    
-    if serverSetting.clientEditable == false and self.sv.hostPlayer ~= remote then
-        sm.log.warning("Settings:sv_onSettingChanged() "..remote.name.." sent setting that is not editable")
-        self:sv_onStatusSet({ status = "WARNING", active = true })
-        return
-    end
 
     if serverSetting.clientViewable == false and self.sv.hostPlayer ~= remote then
         sm.log.warning("Settings:sv_onSettingChanged() "..remote.name.." sent setting that is not viewable")
@@ -277,46 +271,34 @@ function Settings:cl_onCreateSettings()
     self.cl.settingsData = {
         page = 1,
         settings = {},
-        greenFade = {}
+        fade = {}
     }
     for i = 1, SETTINGS_DATA.settingsPerPage do
-        self.cl.settingsData.greenFade[i] = {
+        self.cl.settingsData.fade[i] = {
             time = 0,
             textCache = "",
-            type = nil
+            type = nil,
+            color = nil
         }
     end
 end
 
-local sliderCache = {}
-function Settings:cl_onSettingsFixedUpdate(dt)
-    if sm.game.getCurrentTick() % 10 ~= 0 then return end
-    for i, setting in pairs(self.cl.settingsData.settings) do
-        if setting.isSlider then
-            if sliderCache[i] ~= setting.value then
-                self:cl_onSettingChanged(setting)
-            end
-            sliderCache[i] = setting.value
-        end
-    end
-
-end
-
 function Settings:cl_onSettingsUpdate(dt)
     local layout = self.cl.gui.layout
-    for i, greenFade in pairs(self.cl.settingsData.greenFade) do
-        if greenFade.time > 0 and greenFade.type ~= nil then
-            greenFade.time = greenFade.time - dt
-            if greenFade.time < 0 then
-                greenFade.time = 0
-                greenFade.textCache = ""
-                greenFade.type = nil
+    for i, fade in pairs(self.cl.settingsData.fade) do
+        if fade.time > 0 and fade.type ~= nil then
+            fade.time = fade.time - dt
+            if fade.time < 0 then
+                fade.time = 0
+                fade.textCache = ""
+                fade.type = nil
+                fade.color = nil
             end
-            if not greenFade.type then return end
-            local lerped = greenFade.time/SETTINGS_DATA.greenFadeTime
+            if not fade.type then return end
+            local lerped = fade.time/SETTINGS_DATA.fadeTime
             local color = self:lerpColor(SETTINGS_DATA.orginalColor, SETTINGS_DATA.appliedColor, lerped)
-            local text = "#"..self:colorToHex(color)..tostring(greenFade.textCache)
-            layout:setText("Setting " .. i .. " "..greenFade.type, text)
+            local text = "#"..self:colorToHex(color)..tostring(fade.textCache)
+            layout:setText("Setting " .. i .. " "..fade.type, text)
         end
     end
 end
@@ -345,13 +327,16 @@ function Settings:cl_onSettingSliderCallback(widget, value)
             local settingIndex = i + base
             local setting = self.cl.settingsData.settings[settingIndex]
             if not setting then return end
+
             local newValue = round3(toStep(sm.util.lerp(setting.limit.minValue, setting.limit.maxValue, value), setting.limit.step))
             if setting.value ~= newValue then
-                self.cl.settingsData.greenFade[i] = {
-                    time = SETTINGS_DATA.greenFadeTime,
+                self.cl.settingsData.fade[i] = {
+                    time = SETTINGS_DATA.fadeTime,
                     textCache = tostring(setting.value),
-                    type = "Slider Value"
+                    type = "Slider Value",
+                    color = SETTINGS_DATA.appliedColor
                 }
+                self:cl_onSettingChanged(setting)
             end
             setting.value = round3(toStep(sm.util.lerp(setting.limit.minValue, setting.limit.maxValue, value), setting.limit.step))
             layout:setText("Setting " .. i .. " Slider Value", tostring(setting.value))
@@ -360,7 +345,7 @@ function Settings:cl_onSettingSliderCallback(widget, value)
     end
 end
 
-function Settings:cl_onSettingTextAcceptedCallback(widget, text)
+function Settings:cl_onSettingTextAccepted(widget, text)
     sm.log.info("Settings:cl_onTextAcceptedCallback() " .. widget .. " " .. text)
 
     local layout = self.cl.gui.layout
@@ -368,7 +353,7 @@ function Settings:cl_onSettingTextAcceptedCallback(widget, text)
     local page = data.page
     local perPage = SETTINGS_DATA.settingsPerPage
     local base = (page - 1) * perPage
-    local fadeTime = SETTINGS_DATA.greenFadeTime
+    local fadeTime = SETTINGS_DATA.fadeTime
 
     local function round3(v)
         return math.floor(v * 1000 + 0.5) / 1000
@@ -380,7 +365,7 @@ function Settings:cl_onSettingTextAcceptedCallback(widget, text)
     end
 
     local function fade(i, cache, t)
-        data.greenFade[i] = {
+        data.fade[i] = {
             time = fadeTime,
             textCache = tostring(cache),
             type = t
@@ -519,10 +504,11 @@ function Settings:cl_onSettingButtonClick(button)
             local settingIndex = i + ((self.cl.settingsData.page-1) * SETTINGS_DATA.settingsPerPage)
             local setting = self.cl.settingsData.settings[settingIndex]
 
-            self.cl.settingsData.greenFade[i] = {
-                time = SETTINGS_DATA.greenFadeTime,
+            self.cl.settingsData.fade[i] = {
+                time = SETTINGS_DATA.fadeTime,
                 textCache = capitalize(tostring(setting.value)),
-                type = "Toggle"
+                type = "Toggle",
+                color = SETTINGS_DATA.appliedColor
             }
             setting.value = not setting.value
             self:cl_onSettingChanged(setting)
@@ -537,11 +523,12 @@ function Settings:cl_onOpenSettings()
     local layout = self.cl.gui.layout
     local base = (self.cl.settingsData.page - 1) * SETTINGS_DATA.settingsPerPage
 
-    for i,_ in ipairs(self.cl.settingsData.greenFade) do
-        self.cl.settingsData.greenFade[i] = {
+    for i,_ in ipairs(self.cl.settingsData.fade) do
+        self.cl.settingsData.fade[i] = {
             time = 0,
             textCache = "",
-            type = nil
+            type = nil,
+            color = nil
         }
     end
 
@@ -582,7 +569,14 @@ function Settings:cl_onOpenSettings()
 
         if setting.name then
             layout:setVisible(prefix .. "Name", true)
-            layout:setText(prefix .. "Name", setting.name)
+
+            local colorHex = ""
+
+            if not setting.clientViewable then
+                colorHex = "#3A86FF"      -- server only / hidden from client
+            end
+
+            layout:setText(prefix .. "Name", colorHex .. setting.name)
         end
 
         if setting.type == "toggle" then

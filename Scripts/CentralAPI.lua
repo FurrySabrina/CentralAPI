@@ -71,6 +71,7 @@ function CentralAPI:server_onCreate(_, remote)
         self.sv = {} -- create global server variables
         self:sv_onStatusCreate()
         self:sv_onSettingsCreate()
+        self:sv_onGetHostPlayer()
     end)
     if not success then
         sm.log.error("CentralAPI:server_onCreate() " .. err)
@@ -109,6 +110,7 @@ function CentralAPI:server_onFixedUpdate(dt, remote)
     if self:sv_detectClientCheat("server_onFixedUpdate", remote) then return end
     local success, err = pcall(function()
         self:checkScripts(dt)
+        if not self.sv.hostPlayer then self:sv_onGetHostPlayer() end
     end)
     if not success then
         sm.log.error("CentralAPI:server_onFixedUpdate() " .. err)

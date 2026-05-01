@@ -187,7 +187,7 @@ end
 
 function GUI:cl_onTextAccepted(editbox, text)
     sm.log.info("GUI:cl_onTextAccepted() " .. editbox .. " " .. text)
-    self:cl_onSettingTextAcceptedCallback(editbox, text)
+    self:cl_onSettingTextAccepted(editbox, text)
 end
 
 function GUI:cl_onSliderChanged(slider, value)

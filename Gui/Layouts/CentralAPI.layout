@@ -55,6 +55,7 @@
 				<Property key="FontName" value="SM_Tab" />
 				<Property key="TextColour" value="#ed6fb0" />
 				<Property key="Visible" value="false" />
+				<Property key="TextShadow" value="true" />
 			</Widget>
 			<Widget type="Widget" align="HStretch Bottom" skin="BackgroundPopup" name="Info" position_real="0 0.23214285714285715 0.9935483870967742 0.7589285714285714">
 				<Widget type="EditBox" skin="TextBoxSkin" name="Info Text" position_real="0.01948051948051948 0.03529411764705882 0.961038961038961 0.9294117647058824">

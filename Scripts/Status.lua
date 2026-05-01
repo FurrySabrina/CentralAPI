@@ -71,8 +71,6 @@ end
 
 function Status:sv_onResetStatus(_, remote)
     if self.sv.hostPlayer ~= remote then
-        return
-    else
         if self:sv_detectClientCheat("sv_onResetStatus", remote) then return end
     end
     sm.log.info("Status:sv_onResetStatus()")
@@ -82,6 +80,15 @@ function Status:sv_onResetStatus(_, remote)
         end
     end
     self.network:sendToClients("cl_onReceiveServerStatus", self.sv.status.statuses)
+end
+
+function Status:sv_onRequestStatus(args, remote)
+    if not args then return end
+    if type(args) ~= "table" then return end
+    if not args.status then return end
+    if type(args.status) ~= "string" then return end
+    sm.log.info("Status:sv_onRequestStatus() " .. args.status)
+    self.network:sendToClient(remote, "cl_onRequestStatus", args.status)
 end
 
 --------------------------------------------------------------------------------
@@ -174,4 +181,9 @@ end
 function Status:cl_onResetStatus()
     sm.log.info("Status:sv_onResetStatus()")
     self.network:sendToServer("sv_onResetStatus")
+end
+
+function Status:cl_onRequestStatus(status)
+    sm.log.info("Status:cl_onRequestStatus()")
+    self.network:sendToServer("sv_onClientRequestStatus", { status = status, active = true })
 end

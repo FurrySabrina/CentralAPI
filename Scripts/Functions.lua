@@ -21,23 +21,27 @@ function Functions:sv_onGetHostPlayer(_,remote)
     if self:sv_detectClientCheat({ remote = remote, funcName = "sv_onGetHostPlayer" }) then return end
     sm.log.info("Functions:sv_onGetHostPlayer()")
     if self.sv.hostPlayer then return self.sv.hostPlayer end
-    if #sm.player.getAllPlayers() == 1 then return sm.player.getAllPlayers()[1]
-    elseif #sm.player.getAllPlayers() > 1 then
-        sm.log.warning("Functions:sv_onGetHostPlayer() more than one player detected, returning first player")
+    if #sm.player.getAllPlayers() == 1 then
+        self.sv.hostPlayer = sm.player.getAllPlayers()[1]
+        return sm.player.getAllPlayers()[1]
+    else
+        sm.log.warning("Functions:sv_onGetHostPlayer() more than one player detected, returning first player, but this is not recommended")
+        self:sv_onStatusSet({ status = "WARNING", active = true })
+        self.sv.hostPlayer = sm.player.getAllPlayers()[1]
         return sm.player.getAllPlayers()[1]
     end
     return nil
 end
 
-function Functions:sv_sendHostPlayerRequest(_, remote)
-    sm.log.info("Functions:sv_sendHostPlayerRequest()")
+function Functions:sv_onRequestHostPlayer(_, remote)
+    sm.log.info("Functions:sv_onRequestHostPlayer()")
     self.network:sendToClient(remote, "cl_onReceiveHostPlayer", self.sv.hostPlayer)
 end
 
 function Functions:cl_onRequestHostPlayer()
     sm.log.info("Functions:cl_onRequestHostPlayer()")
     if not self.cl.hostPlayer then
-        self.network:sendToServer("sv_sendHostPlayerRequest", sm.localPlayer.getPlayer())
+        self.network:sendToServer("sv_onRequestHostPlayer", sm.localPlayer.getPlayer())
     end
 end
 
@@ -88,6 +92,7 @@ end
 function Functions:sv_detectClientCheat(funcName, remote)
     if remote == nil then return false end -- only blocks client side
     if funcName == nil then funcName = "sv_detectClientCheat" end
-    sm.log.warning("Functions:detectClientCheat() " .. funcName .. " called by " .. remote.name)
+    sm.log.warning("Functions:detectClientCheat() " .. funcName .. " illegally called by " .. remote.name .. "'s client")
+    self:sv_onStatusSet({ status = "WARNING", active = true })
     return true -- blocks any more code
 end
