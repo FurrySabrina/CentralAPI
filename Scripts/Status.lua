@@ -69,6 +69,11 @@ function Status:sv_onClientRequestStatus(args, remote)
     self:sv_onStatusSet({ status = args.status, active = args.active })
 end
 
+function Status:sv_onRequestStatuses(_, remote)
+    sm.log.info("Status:sv_onRequestStatuses()")
+    self.network:sendToClient(remote, "cl_onReceiveServerStatus", self.sv.status.statuses)
+end
+
 function Status:sv_onResetStatus(_, remote)
     if self.sv.hostPlayer ~= remote then
         if self:sv_detectClientCheat("sv_onResetStatus", remote) then return end
@@ -99,12 +104,7 @@ function Status:cl_onStatusCreate()
     sm.log.info("Status:cl_onStatusCreate()")
     self.cl.status = {}
     self.cl.status.statuses = {}
-    for status, properties in pairs(STATUS_PROPERTIES) do
-        self.cl.status.statuses[status] = properties.default or false
-        if properties.default then
-            self.interactable:setUvFrameIndex(properties.UVIndex)
-        end
-    end
+    self:cl_onRequestStatuses()
     self.cl.status.blink = false
 end
 
@@ -186,4 +186,9 @@ end
 function Status:cl_onRequestStatus(status)
     sm.log.info("Status:cl_onRequestStatus()")
     self.network:sendToServer("sv_onClientRequestStatus", { status = status, active = true })
+end
+
+function Status:cl_onRequestStatuses()
+    sm.log.info("Status:cl_onRequestStatuses()")
+    self.network:sendToServer("sv_onRequestStatuses")
 end
