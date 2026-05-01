@@ -1,6 +1,6 @@
 <MyGUI type="Layout" version="3.2.0">
 	<Widget type="Canvas" skin="Canvas" position_real="0.2994791666666667 0.24351851851851852 0.4010416666666667 0.5138888888888888">
-		<Widget type="Widget" skin="BackgroundInteractableWide" name="fart BackPanel" position_real="0 0 1.0064935064935066 1.009009009009009">
+		<Widget type="Widget" skin="BackgroundInteractableWide" name="BackPanel" position_real="0 0 1.0064935064935066 1.009009009009009">
 			<Widget type="TextBox" align="HStretch Top" skin="TextBox" name="Title" position_real="0 0.05357142857142857 0.9935483870967742 0.11607142857142858">
 				<Property key="Caption" value="#00C2FFCENTRAL  API" />
 				<Property key="FontName" value="SM_HeaderLarge_Wide" />

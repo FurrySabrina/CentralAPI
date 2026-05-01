@@ -285,7 +285,10 @@ end
 function Settings:cl_onSettingsRefresh()
     sm.log.info("Settings:cl_onSettingsRefresh()")
     print(self.cl.hostPlayer == sm.localPlayer.getPlayer())
-    self.cl.gui.layout:setVisible("DEBUG MODE", self.cl.hostPlayer == sm.localPlayer.getPlayer())
+    local isActive = self.cl.hostPlayer == sm.localPlayer.getPlayer()
+    self.cl.gui.layout:setVisible("DEBUG MODE", isActive)
+    self.cl.gui.layout:setVisible("Reset Status", isActive)
+
 end
 
 function Settings:cl_onSettingsUpdate(dt)
@@ -553,6 +556,19 @@ function Settings:cl_onOpenSettings()
         return math.floor(v * 1000 + 0.5) / 1000
     end
 
+    local function limit(v, min, max, step)
+        print("1",v)
+        if min and v < min then v = min end
+        print("2",v)
+        if max and v > max then v = max end
+        print("3",v)
+        if step and step ~= 0 then
+            v = math.floor((v + 0.5) / step) * step
+        end
+        print("4",v)
+        return v
+    end
+
     self.cl.gui.layout:setVisible("Settings Last", self.cl.settingsData.page > 1)
     self.cl.gui.layout:setVisible("Settings Next", self.cl.settingsData.settings[(self.cl.settingsData.page - 1) * SETTINGS_DATA.settingsPerPage + SETTINGS_DATA.settingsPerPage] ~= nil)
     self.cl.gui.layout:setText("Settings Page", tostring(self.cl.settingsData.page))
@@ -592,21 +608,7 @@ function Settings:cl_onOpenSettings()
         elseif setting.type == "integer" then
             local edit = prefix .. "String"
             local slider = prefix .. "Slider"
-
-            if isSlider then
-                layout:setText(slider .. " Value", tostring(setting.value))
-                layout:setVisible(slider, true)
-                layout:setVisible(slider .. " Value", true)
-            else
-                layout:setText(edit, tostring(setting.value))
-                layout:setVisible(edit, true)
-                layout:setVisible(edit .. " BG", true)
-            end
-
-        elseif setting.type == "float" then
-            local edit = prefix .. "String"
-            local slider = prefix .. "Slider"
-            local v = round3(setting.value)
+            local v = setting.limit ~= nil and limit(math.floor(setting.value), setting.limit.minValue, setting.limit.maxValue, setting.limit.step) or math.floor(setting.value)
 
             if isSlider then
                 layout:setText(slider .. " Value", tostring(v))
@@ -614,6 +616,28 @@ function Settings:cl_onOpenSettings()
                 layout:setVisible(slider .. " Value", true)
             else
                 layout:setText(edit, tostring(v))
+                layout:setVisible(edit, true)
+                layout:setVisible(edit .. " BG", true)
+            end
+
+        elseif setting.type == "float" then
+            local edit = prefix .. "String"
+            local slider = prefix .. "Slider"
+            local v = 0
+            if setting.limit ~= nil then
+                v = limit(setting.value, setting.limit.minValue, setting.limit.maxValue, setting.limit.step)
+            else
+                v = setting.value
+            end
+
+            print(v)
+
+            if isSlider then
+                layout:setText(slider .. " Value", tostring(round3(v)))
+                layout:setVisible(slider, true)
+                layout:setVisible(slider .. " Value", true)
+            else
+                layout:setText(edit, tostring(round3(v)))
                 layout:setVisible(edit, true)
                 layout:setVisible(edit .. " BG", true)
             end
@@ -631,6 +655,7 @@ function Settings:cl_onOpenSettings()
             layout:setVisible(prefix .. "Color Icon BG", true)
 
         elseif setting.type == "vector3" then
+
             local vx = prefix .. "Vector3 X"
             local vy = prefix .. "Vector3 Y"
             local vz = prefix .. "Vector3 Z"
