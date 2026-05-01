@@ -153,7 +153,6 @@ function CentralAPI:client_onFixedUpdate(dt)
     self:cl_onStatusAnimate() -- animate regardless
     if self.cl.status.statuses.ERROR then return end
     local success, err = pcall(function()
-        self:cl_onSettingsFixedUpdate(dt)
     end)
     if not success then
         sm.log.error("CentralAPI:client_onFixedUpdate() " .. err)
