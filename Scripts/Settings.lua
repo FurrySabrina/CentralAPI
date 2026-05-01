@@ -282,6 +282,12 @@ function Settings:cl_onCreateSettings()
     end
 end
 
+function Settings:cl_onSettingsRefresh()
+    sm.log.info("Settings:cl_onSettingsRefresh()")
+    print(self.cl.hostPlayer == sm.localPlayer.getPlayer())
+    self.cl.gui.layout:setVisible("DEBUG MODE", self.cl.hostPlayer == sm.localPlayer.getPlayer())
+end
+
 function Settings:cl_onSettingsUpdate(dt)
     local layout = self.cl.gui.layout
     for i, fade in pairs(self.cl.settingsData.fade) do
@@ -572,7 +578,7 @@ function Settings:cl_onOpenSettings()
             local colorHex = ""
 
             if not setting.clientViewable then
-                colorHex = self:colorToHex(SETTINGS_DATA.nonViewableColor)      -- server only / hidden from client
+                colorHex = "#"..self:colorToHex(SETTINGS_DATA.nonViewableColor)      -- server only / hidden from client
             end
 
             layout:setText(prefix .. "Name", colorHex .. setting.name)

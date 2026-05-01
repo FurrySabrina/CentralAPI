@@ -142,6 +142,7 @@ function CentralAPI:client_onRefresh()
         sm.log.info("CentralAPI:client_onRefresh()")
         self:cl_onRefreshGUI()
         self:cl_onStatusRefresh()
+        self:cl_onSettingsRefresh()
     end)
     if not success then
         sm.log.error("CentralAPI:client_onRefresh() " .. err)
