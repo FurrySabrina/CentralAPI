@@ -1,0 +1,435 @@
+<MyGUI type="Layout" version="3.2.0">
+	<Widget type="Widget" skin="BackgroundInteractableWide" name="Settings_BackPanel" position_real="0.2994791666666667 0.24074074074074073 0.4010416666666667 0.5185185185185185">
+		<Property key="Visible" value="false" />
+		<Widget type="TextBox" align="HStretch Top" skin="TextBox" name="Title" position_real="0 0.05357142857142857 1 0.11607142857142858">
+			<Property key="Caption" value="#00C2FFSETTINGS" />
+			<Property key="FontName" value="SM_HeaderLarge_Wide" />
+			<Property key="TextAlign" value="Center" />
+			<Property key="TextShadow" value="true" />
+		</Widget>
+		<Widget type="Widget" align="HStretch Bottom" skin="BackgroundPopup" name="Settings" position_real="0 0.23214285714285715 1.0064935064935066 0.7678571428571429">
+			<Widget type="Canvas" skin="Canvas" name="Setting 1" position_real="0.01935483870967742 0.046511627906976744 0.9548387096774194 0.1511627906976744">
+				<Widget type="Button" skin="ActiveButton" name="Setting 1 Toggle" position_real="0.41216216216216217 0 0.5878378378378378 1">
+					<Property key="Caption" value="Toggle 1" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="TextAlign" value="Center" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 1 String" position_real="0.41216216216216217 0 0.5878378378378378 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Number and String 1" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 1 Color" position_real="0.41216216216216217 0 0.5067567567567568 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Color 1" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="BeaconIconColorBorder" name="Setting 1 Color BG" position_real="0.9121621621621622 0.07692307692307693 0.07432432432432433 0.8461538461538461">
+					<Property key="Visible" value="false" />
+					<Widget type="ImageBox" skin="BeaconIconColor" name="Setting 1 Color Icon" position_real="0.18181818181818182 0.18181818181818182 0.6363636363636364 0.6363636363636364" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 1 Name" position_real="0 0 0.4189189189189189 1">
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Name 1" />
+					<Property key="TextAlign" value="Center" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 1 Vector3 X" position_real="0.47297297297297297 0 0.14189189189189189 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 X 1" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 1 Vector3 X Static" position_real="0.41216216216216217 0 0.07432432432432433 1">
+					<Property key="Caption" value="X:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 1 Vector3 Y Static" position_real="0.6013513513513513 0 0.07432432432432433 1">
+					<Property key="Caption" value="Y:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 1 Vector3 Y" position_real="0.6621621621621622 0 0.14189189189189189 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 Y 1" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 1 Vector3 Z Static" position_real="0.7905405405405406 0 0.07432432432432433 1">
+					<Property key="Caption" value="Z:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 1 Vector3 Z" position_real="0.8513513513513513 0 0.14864864864864866 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 Z 1" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+			</Widget>
+			<Widget type="Canvas" skin="Canvas" name="Setting 2" position_real="0.01935483870967742 0.1744186046511628 0.9548387096774194 0.1511627906976744">
+				<Widget type="Button" skin="ActiveButton" name="Setting 2 Toggle" position_real="0.41216216216216217 0 0.5878378378378378 1">
+					<Property key="Caption" value="Toggle 2" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="TextAlign" value="Center" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 2 String" position_real="0.41216216216216217 0 0.5878378378378378 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Number and String 2" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 2 Color" position_real="0.41216216216216217 0 0.5067567567567568 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Color 2" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="BeaconIconColorBorder" name="Setting 2 Color BG" position_real="0.9121621621621622 0.07692307692307693 0.07432432432432433 0.8461538461538461">
+					<Property key="Visible" value="false" />
+					<Widget type="ImageBox" skin="BeaconIconColor" name="Setting 2 Color Icon" position_real="0.18181818181818182 0.18181818181818182 0.6363636363636364 0.6363636363636364" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 2 Name" position_real="0 0 0.4189189189189189 1">
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Name 2" />
+					<Property key="TextAlign" value="Center" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 2 Vector3 X" position_real="0.47297297297297297 0 0.14189189189189189 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 X 2" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 2 Vector3 X Static" position_real="0.41216216216216217 0 0.07432432432432433 1">
+					<Property key="Caption" value="X:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 2 Vector3 Y Static" position_real="0.6013513513513513 0 0.07432432432432433 1">
+					<Property key="Caption" value="Y:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 2 Vector3 Y" position_real="0.6621621621621622 0 0.14189189189189189 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 Y 2" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 2 Vector3 Z Static" position_real="0.7905405405405406 0 0.07432432432432433 1">
+					<Property key="Caption" value="Z:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 2 Vector3 Z" position_real="0.8513513513513513 0 0.14864864864864866 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 Z 2" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+			</Widget>
+			<Widget type="Canvas" skin="Canvas" name="Setting 3" position_real="0.01935483870967742 0.3023255813953488 0.9548387096774194 0.1511627906976744">
+				<Widget type="Button" skin="ActiveButton" name="Setting 3 Toggle" position_real="0.41216216216216217 0 0.5878378378378378 1">
+					<Property key="Caption" value="Toggle 3" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="TextAlign" value="Center" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 3 String" position_real="0.41216216216216217 0 0.5878378378378378 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Number and String 3" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 3 Color" position_real="0.41216216216216217 0 0.5067567567567568 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Color 3" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="BeaconIconColorBorder" name="Setting 3 Color BG" position_real="0.9121621621621622 0.07692307692307693 0.07432432432432433 0.8461538461538461">
+					<Property key="Visible" value="false" />
+					<Widget type="ImageBox" skin="BeaconIconColor" name="Setting 3 Color Icon" position_real="0.18181818181818182 0.18181818181818182 0.6363636363636364 0.6363636363636364" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 3 Name" position_real="0 0 0.4189189189189189 1">
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Name 3" />
+					<Property key="TextAlign" value="Center" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 3 Vector3 X" position_real="0.47297297297297297 0 0.14189189189189189 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 X 3" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 3 Vector3 X Static" position_real="0.41216216216216217 0 0.07432432432432433 1">
+					<Property key="Caption" value="X:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 3 Vector3 Y Static" position_real="0.6013513513513513 0 0.07432432432432433 1">
+					<Property key="Caption" value="Y:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 3 Vector3 Y" position_real="0.6621621621621622 0 0.14189189189189189 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 Y 3" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 3 Vector3 Z Static" position_real="0.7905405405405406 0 0.07432432432432433 1">
+					<Property key="Caption" value="Z:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 3 Vector3 Z" position_real="0.8513513513513513 0 0.14864864864864866 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 Z 3" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+			</Widget>
+			<Widget type="Canvas" skin="Canvas" name="Setting 4" position_real="0.01935483870967742 0.43023255813953487 0.9548387096774194 0.1511627906976744">
+				<Widget type="Button" skin="ActiveButton" name="Setting 4 Toggle" position_real="0.41216216216216217 0 0.5878378378378378 1">
+					<Property key="Caption" value="Toggle 4" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="TextAlign" value="Center" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 4 String" position_real="0.41216216216216217 0 0.5878378378378378 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Number and String 4" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 4 Color" position_real="0.41216216216216217 0 0.5067567567567568 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Color 4" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="BeaconIconColorBorder" name="Setting 4 Color BG" position_real="0.9121621621621622 0.07692307692307693 0.07432432432432433 0.8461538461538461">
+					<Property key="Visible" value="false" />
+					<Widget type="ImageBox" skin="BeaconIconColor" name="Setting 4 Color Icon" position_real="0.18181818181818182 0.18181818181818182 0.6363636363636364 0.6363636363636364" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 4 Name" position_real="0 0 0.4189189189189189 1">
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Name 4" />
+					<Property key="TextAlign" value="Center" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 4 Vector3 X" position_real="0.47297297297297297 0 0.14189189189189189 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 X 4" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 4 Vector3 X Static" position_real="0.41216216216216217 0 0.07432432432432433 1">
+					<Property key="Caption" value="X:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 4 Vector3 Y Static" position_real="0.6013513513513513 0 0.07432432432432433 1">
+					<Property key="Caption" value="Y:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 4 Vector3 Y" position_real="0.6621621621621622 0 0.14189189189189189 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 Y 4" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 4 Vector3 Z Static" position_real="0.7905405405405406 0 0.07432432432432433 1">
+					<Property key="Caption" value="Z:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 4 Vector3 Z" position_real="0.8513513513513513 0 0.14864864864864866 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 Z 4" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+			</Widget>
+			<Widget type="Canvas" skin="Canvas" name="Setting 5" position_real="0.01935483870967742 0.5581395348837209 0.9548387096774194 0.1511627906976744">
+				<Widget type="Button" skin="ActiveButton" name="Setting 5 Toggle" position_real="0.41216216216216217 0 0.5878378378378378 1">
+					<Property key="Caption" value="Toggle 5" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="TextAlign" value="Center" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 5 String" position_real="0.41216216216216217 0 0.5878378378378378 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Number and String 5" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 5 Color" position_real="0.41216216216216217 0 0.5067567567567568 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Color 5" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="BeaconIconColorBorder" name="Setting 5 Color BG" position_real="0.9121621621621622 0.07692307692307693 0.07432432432432433 0.8461538461538461">
+					<Property key="Visible" value="false" />
+					<Widget type="ImageBox" skin="BeaconIconColor" name="Setting 5 Color Icon" position_real="0.18181818181818182 0.18181818181818182 0.6363636363636364 0.6363636363636364" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 5 Name" position_real="0 0 0.4189189189189189 1">
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Name 5" />
+					<Property key="TextAlign" value="Center" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 5 Vector3 X" position_real="0.47297297297297297 0 0.14189189189189189 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 X 5" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 5 Vector3 X Static" position_real="0.41216216216216217 0 0.07432432432432433 1">
+					<Property key="Caption" value="X:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 5 Vector3 Y Static" position_real="0.6013513513513513 0 0.07432432432432433 1">
+					<Property key="Caption" value="Y:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 5 Vector3 Y" position_real="0.6621621621621622 0 0.14189189189189189 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 Y 5" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 5 Vector3 Z Static" position_real="0.7905405405405406 0 0.07432432432432433 1">
+					<Property key="Caption" value="Z:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 5 Vector3 Z" position_real="0.8513513513513513 0 0.14864864864864866 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 Z 5" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+			</Widget>
+			<Widget type="Canvas" skin="Canvas" name="Setting 6" position_real="0.01935483870967742 0.686046511627907 0.9548387096774194 0.1511627906976744">
+				<Widget type="Button" skin="ActiveButton" name="Setting 6 Toggle" position_real="0.41216216216216217 0 0.5878378378378378 1">
+					<Property key="Caption" value="Toggle 6" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="TextAlign" value="Center" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 6 String" position_real="0.41216216216216217 0 0.5878378378378378 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Number and String 6" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 6 Color" position_real="0.41216216216216217 0 0.5067567567567568 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Color 6" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="BeaconIconColorBorder" name="Setting 6 Color BG" position_real="0.9121621621621622 0.07692307692307693 0.07432432432432433 0.8461538461538461">
+					<Property key="Visible" value="false" />
+					<Widget type="ImageBox" skin="BeaconIconColor" name="Setting 6 Color Icon" position_real="0.18181818181818182 0.18181818181818182 0.6363636363636364 0.6363636363636364" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 6 Name" position_real="0 0 0.4189189189189189 1">
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="Name 6" />
+					<Property key="TextAlign" value="Center" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 6 Vector3 X" position_real="0.47297297297297297 0 0.14189189189189189 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 X 6" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 6 Vector3 X Static" position_real="0.41216216216216217 0 0.07432432432432433 1">
+					<Property key="Caption" value="X:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 6 Vector3 Y Static" position_real="0.6013513513513513 0 0.07432432432432433 1">
+					<Property key="Caption" value="Y:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 6 Vector3 Y" position_real="0.6621621621621622 0 0.14189189189189189 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 Y 6" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="SettingsButton" name="Setting 6 Vector3 Z Static" position_real="0.7905405405405406 0 0.07432432432432433 1">
+					<Property key="Caption" value="Z:" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Visible" value="false" />
+				</Widget>
+				<Widget type="EditBox" skin="ActiveButton" name="Setting 6 Vector3 Z" position_real="0.8513513513513513 0 0.14864864864864866 1">
+					<Property key="MaxTextLength" value="48" />
+					<Property key="FontName" value="SM_ItemTitle" />
+					<Property key="Caption" value="V3 Z 6" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="Visible" value="false" />
+				</Widget>
+			</Widget>
+			<Widget type="Button" skin="DressbotArrowLeft" name="Settings Last Page" position_real="0.36129032258064514 0.8604651162790697 0.07096774193548387 0.12790697674418605" />
+			<Widget type="TextBox" skin="SecondaryButton" name="Settings Page" position_real="0.43870967741935485 0.872093023255814 0.12258064516129032 0.10465116279069768">
+				<Property key="Caption" value="1" />
+				<Property key="FontName" value="SM_ItemTitle" />
+				<Property key="TextAlign" value="Center" />
+			</Widget>
+			<Widget type="Button" skin="DressbotArrowRight" name="Settings Next Page" position_real="0.567741935483871 0.8604651162790697 0.07096774193548387 0.12790697674418605" />
+		</Widget>
+		<Widget type="Button" skin="DressbotArrowLeft" name="Settings_Back" position_real="0.03636363636363636 0.060714285714285714 0.07142857142857142 0.09821428571428571" />
+	</Widget>
+</MyGUI>

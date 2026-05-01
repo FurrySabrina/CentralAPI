@@ -1,0 +1,16 @@
+{
+   "toolList" : [
+      {
+         "autoTool" : true,
+         "name" : "autotool",
+         "previewRenderable" : "$GAME_DATA/Character/Char_Tools/char_spudgun_preview.rend",
+         "script" : {
+            "class" : "autotool",
+            "data" : {},
+            "file" : "$CONTENT_DATA/Scripts/autotool.lua"
+         },
+         "showInInventory" : false,
+         "uuid" : "8b4ae0a5-e449-4f58-adbe-f31cc7968dc8"
+      }
+   ]
+}

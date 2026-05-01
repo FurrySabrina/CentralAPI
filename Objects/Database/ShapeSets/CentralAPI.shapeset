@@ -1,0 +1,39 @@
+{
+   "partList" : [
+      {
+         "box" : {
+            "x" : 1,
+            "y" : 1,
+            "z" : 1
+         },
+         "color" : "00C2FF",
+         "flammable" : false,
+         "name" : "CentralAPI",
+         "physicsMaterial" : "Default",
+         "ratings" : {
+            "buoyancy" : 100,
+            "density" : 100,
+            "durability" : 100,
+            "friction" : 100
+         },
+         "renderable" : "$CONTENT_DATA/Objects/Renderables/obj_source_logicgate.rend",
+         "restrictions" : {
+            "buildable" : false,
+            "connectable" : false,
+            "convertibleToDynamic" : false,
+            "destructable" : false,
+            "erasable" : false,
+            "liftable" : false,
+            "paintable" : false,
+            "usable" : true
+         },
+         "rotationSet" : "Default",
+         "scripted" : {
+            "classname" : "CentralAPI",
+            "filename" : "$CONTENT_DATA/Scripts/CentralAPI.lua"
+         },
+         "showInInventory" : false,
+         "uuid" : "02189350-abdc-482e-9e5a-f10e5b72e6f6"
+      }
+   ]
+}

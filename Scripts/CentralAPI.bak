@@ -1,0 +1,1237 @@
+if CentralAPI then return end
+
+dofile("CentralAPI_GUI.lua")
+
+CentralAPI = class()
+
+--------------------------------------------------------------------------------
+--================================== Helpers =================================--
+--------------------------------------------------------------------------------
+
+local function mergeTable(target, source)
+    for k, v in pairs(source) do
+        if type(v) == "table" then
+            target[k] = target[k] or {}
+            mergeTable(target[k], v)
+        else
+            target[k] = v
+        end
+    end
+end
+
+local function checkInTable(table, value)
+    for k, v in pairs(table) do
+        if v == value then return true end
+    end
+    return false
+end
+
+local function colorToHex(color)
+    local r = math.floor(color.r * 255)
+    local g = math.floor(color.g * 255)
+    local b = math.floor(color.b * 255)
+    return string.format("%02X%02X%02X", r, g, b)
+end
+
+local function capitalize(str)
+    return str:sub(1, 1):upper() .. str:sub(2)
+end
+
+function generateSettings(count)
+    local settings = {}
+
+    local syllables = {
+        "zor", "tek", "ban", "qua", "flo", "rix", "mon", "vel",
+        "dra", "pik", "lum", "gar", "shi", "tor", "zen", "plu",
+        "vox", "kri", "nop", "yel", "fim", "wak", "jor", "sni"
+    }
+
+    local function randomName()
+        local parts = math.random(2, 4)
+        local name = ""
+
+        for i = 1, parts do
+            name = name .. syllables[math.random(1, #syllables)]
+        end
+
+        name = capitalize(name)
+        return name
+    end
+
+    local function randFloat(min, max)
+        return min + math.random() * (max - min)
+    end
+
+    local function randVec3()
+        return sm.vec3.new(
+            math.random(-10000, 10000)/100,
+            math.random(-10000, 10000)/100,
+            math.random(-10000, 10000)/100
+        )
+    end
+
+    local function randColor()
+        return sm.color.new(
+            math.random(),
+            math.random(),
+            math.random()
+        )
+    end
+
+    for i = 1, count do
+        local setting = {
+            name = randomName(),
+            clientEditable = math.random() > 0.2,
+            clientViewable = math.random() > 0.1
+        }
+
+        local t = math.random(1, 6)
+
+        if t == 1 then
+            setting.type = "toggle"
+            setting.value = math.random() > 0.5
+
+        elseif t == 2 then
+            local minVal = math.random(0, 25)
+            local maxVal = math.random(50, 500)
+
+            setting.type = "integer"
+            setting.value = math.random(minVal, maxVal)
+            setting.limit = math.random() > 0.5 and {
+                minValue = minVal,
+                maxValue = maxVal,
+                step = math.random(1, 10)
+            } or nil
+            setting.isSlider = math.random() > 0.3
+
+        elseif t == 3 then
+            local minVal = 0
+            local maxVal = math.random(10, 100)
+
+            setting.type = "float"
+            setting.value = randFloat(minVal, maxVal)
+            setting.limit = math.random() > 0.5 and {
+                minValue = minVal,
+                maxValue = maxVal,
+                step = math.random(1, 1000) / 1000
+            } or nil
+            setting.isSlider = math.random() > 0.3
+
+        elseif t == 4 then
+            setting.type = "string"
+            setting.value = randomName() .. "_" .. math.random(100, 999)
+
+        elseif t == 5 then
+            setting.type = "color"
+            setting.value = randColor()
+
+        elseif t == 6 then
+            setting.type = "vector3"
+            setting.value = randVec3()
+            setting.limit = math.random() > 0.5 and {
+                minValue = randVec3(),
+                maxValue = randVec3(),
+                step = randVec3()
+            }
+        end
+
+        table.insert(settings, setting)
+    end
+
+    return settings
+end
+
+--------------------------------------------------------------------------------
+--================================== Global ==================================--
+--------------------------------------------------------------------------------
+
+local INDEX_TO_STATUS = {
+    "OFF",
+    "CHECK",
+    "DEBUG",
+    "HOURGLASS",
+    "SYNCING",
+    "INFO",
+    "QUESTION",
+    "LOCKED",
+    "WARNING",
+    "ERROR"
+}
+
+local STATUS_TO_INDEX = {}
+
+for i, status in pairs(INDEX_TO_STATUS) do
+    STATUS_TO_INDEX[status] = i
+end
+
+local STATUS_PROPERTIES = {
+    ERROR = { blink = 30,  UVIndex = 5 },
+    WARNING = { blink = 40, UVIndex = 4 },
+    LOCKED = { blink = 0, UVIndex = 7 },
+    QUESTION = { blink = 80, UVIndex = 2 },
+    INFO = { blink = 40, UVIndex = 3 },
+    SYNCING = { blink = 40, UVIndex = 8 },
+    HOURGLASS = { blink = 0, UVIndex = 6 },
+    DEBUG = { blink = 0, UVIndex = 9 },
+    CHECK = { blink = 0, UVIndex = 1 },
+    OFF = { blink = 0, UVIndex = 0 }
+}
+
+local LOGGING_PROPERTIES = {
+    { status = "ERROR", canBeIgnored = false },
+    { status = "WARNING", canBeIgnored = true },
+    { status = "QUESTION", canBeIgnored = false },
+    { status = "INFO", canBeIgnored = true },
+    { status = "DEBUG", canBeIgnored = true }
+}
+
+local SV_DEFAULT_DATA = {
+    logged = {},
+    statuses = {
+        ERROR = false,
+        WARNING = false,
+        LOCKED = false,
+        QUESTION = false,
+        INFO = false,
+        SYNCING = false,
+        HOURGLASS = false,
+        DEBUG = false,
+        CHECK = true
+        -- OFF isnt added because it is the default state when no other status is active
+    },
+    hostPlayer = nil,
+    settingsData = {
+        page = 1,
+        settings = {
+            { name = "Toggle", type = "toggle", value = true, clientEditable = true, clientViewable = true },
+            { name = "Integer", type = "integer", value = 0, clientEditable = true, clientViewable = true },
+            { name = "Float", type = "float", value = 0, clientEditable = true, clientViewable = true },
+            { name = "String", type = "string", value = "Hello World", clientEditable = true, clientViewable = true },
+            { name = "Color", type = "color", value = sm.color.new(1, 0, 0), clientEditable = true, clientViewable = true },
+            { name = "Vector3", type = "vector3", value = sm.vec3.new(0, 0, 0), clientEditable = true, clientViewable = true },
+        }
+    }
+}
+
+local CL_DEFAULT_DATA = {
+    logged = {},
+    statuses = {
+        ERROR = false,
+        WARNING = false,
+        LOCKED = false,
+        QUESTION = false,
+        INFO = false,
+        SYNCING = false,
+        HOURGLASS = false,
+        DEBUG = false,
+        CHECK = true
+        -- OFF isnt added because it is the default state when no other status is active
+    },
+    blink = false,
+    hostPlayer = nil,
+    settingsData = {
+        page = 1,
+        settings = {},
+        greenFade = {
+            -- [1] = { value = 0, cache = 0 }
+        }
+    }
+}
+
+local SETTINGS_DATA = {
+    settingsPerPage = 6,
+    types = {
+        "toggle",
+        "integer",
+        "float",
+        "string",
+        "color",
+        "vector3"
+    },
+    defaultSliderValues = {
+        minValue = 0,
+        maxValue = 100,
+        step = 1
+    },
+    orginalColor = "#FFD449",
+    appliedColor = "#32C85A"
+}
+
+local GUI_DATA = {
+    isHud = false,
+    isInteractive = true,
+    needsCursor = true,
+    hidesHotbar = true,
+    isOverlapped = true,
+    backgroundAlpha = 0.5
+}
+
+local GUI_TEXTS = {
+    ["About"] = [[#00C2FFCentralAPI#FFFFFF is a #3A86FFlightweight runtime system#FFFFFF for Scrap Mechanic mods that allows code to run continuously in the background.\n\nInstead of each mod handling its own #FFB020update loops#FFFFFF and timing systems, CentralAPI provides a #32C85Ashared execution layer#FFFFFF that ensures consistent, centralized processing across all compatible mods.\n\nIt is designed to support always-running logic such as #7B61FFautomation systems#FFFFFF, world updates, background tasks, and utility functions similar to an #FF8C00autotool-style framework#FFFFFF.\n\nCentralAPI also enables #00C2FFmod-to-mod connections#FFFFFF, allowing compatible mods to communicate, share data, and build on each other's systems for greater #32C85Amodularity#FFFFFF and extensibility.\n\nCentralAPI focuses on #3A86FFstability#FFFFFF, #32C85Asimplicity#FFFFFF, and #FFB020performance#FFFFFF, allowing multiple systems to run together without conflicts or duplicated logic.\n\nVersion: #32C85A1.0.0#FFFFFF\nCreated by: #7B61FFSabrina#FFFFFF]],
+    ["Credits"] = [[#00C2FFCredits#FFFFFF\n\n#7B61FFSabrina#FFFFFF - Creator / Developer\n\n#FFB020Thanks#FFFFFF - Scrap Mechanic modding community]]
+}
+
+--------------------------------------------------------------------------------
+--================================== Server ==================================--
+--------------------------------------------------------------------------------
+
+function CentralAPI:server_onCreate( refreshData )
+    local status, err = pcall(function()
+        print("CentralAPI:server_onCreate()")
+        self.sv = refreshData or SV_DEFAULT_DATA
+        if not self.sv then self:sv_loadData() end
+        --self.sv.settingsData.settings = generateSettings(50)
+        self.network:sendToClients("cl_onUpdateData", self.sv)
+    end)
+    if not status then
+        sm.log.error("CentralAPI:server_onCreate() failed to run: " .. err)
+        table.insert(self.sv.logged, {
+            status = "ERROR",
+            source = {
+                side = "Server",
+                mod = "CentralAPI",
+                object = "Core",
+            },
+            content = {
+                message = "Failed to run server_onCreate()",
+                error = err,
+            },
+            meta = {
+                time = os.time(),
+                shownToClients = false
+            }
+        })
+        self.sv.statuses["ERROR"] = true
+        self.network:sendToClients("cl_onUpdateData", self.sv)
+    end
+end
+
+function CentralAPI:server_onRefresh()
+    local status, err = pcall(function()
+        print("-----------------------------")
+        print("CentralAPI:server_onRefresh()")
+        self.sv = SV_DEFAULT_DATA
+        table.insert(self.sv.logged, {
+            status = "OFF",
+            source = self.sv.hostPlayer,
+            content = "Server onRefresh()",
+            meta = os.time()
+        })
+        self.sv.statuses["DEBUG"] = true
+        self:sv_saveData()
+        self:server_onCreate(self.sv)
+    end)
+    if not status then
+        sm.log.error("CentralAPI:server_onRefresh() failed to run: " .. err)
+        table.insert(self.sv.logged, {
+            status = "OFF",
+            source = self.sv.hostPlayer,
+            content = "Server onRefresh()",
+            meta = os.time()
+        })
+        self.sv.statuses["ERROR"] = true
+        self.network:sendToClients("cl_onUpdateData", self.sv)
+    end
+end
+
+function CentralAPI:server_onDestroy()
+    local status, err = pcall(function()
+        print("CentralAPI:server_onDestroy()")
+        self:sv_saveData()
+    end)
+    if not status then
+        sm.log.error("CentralAPI:server_onDestroy() failed to run: " .. err)
+        table.insert(self.sv.logged, {
+            status = "OFF",
+            source = self.sv.hostPlayer,
+            content = "Server onDestroy()",
+            meta = os.time()
+        })
+        self.sv.statuses["ERROR"] = true
+        self.network:sendToClients("cl_onUpdateData", self.sv)
+    end
+end
+
+function CentralAPI:server_onFixedUpdate(dt)
+    if self.sv.statuses["ERROR"] then return end
+    local status, err = pcall(function()
+        if not self.sv.hostPlayer and #sm.player.getAllPlayers() > 0 then
+            self.sv.hostPlayer = sm.player.getAllPlayers()[1]
+        end
+    end)
+    if not status then
+        sm.log.error("CentralAPI:server_onFixedUpdate() failed to run: " .. err)
+        table.insert(self.sv.logged, {
+            status = "ERROR",
+            source = {
+                side = "Server",
+                mod = "CentralAPI",
+                object = "Core",
+            },
+            content = {
+                message = "Failed to run server_onFixedUpdate()",
+                error = err,
+            },
+            meta = {
+                time = os.time(),
+                shownToClients = false
+            }
+        })
+        self.sv.statuses["ERROR"] = true
+        self.network:sendToClients("cl_onUpdateData", self.sv)
+    end
+end
+
+--------------------------------------------------------------------------------
+--================================== Sub-Server ==============================--
+--------------------------------------------------------------------------------
+
+function CentralAPI:sv_loadData()
+    local storage = sm.storage.load("CentralAPI")
+    local data = storage or DEFAULT_DATA
+    self.sv = data
+    self.sv.statuses["ERROR"] = false
+    self.sv.statuses["WARNING"] = false
+    self.sv.statuses["LOCKED"] = false
+    self.sv.statuses["QUESTION"] = false
+    self.sv.statuses["INFO"] = false
+    self.sv.statuses["SYNCING"] = false
+    self.sv.statuses["DEBUG"] = false
+    self.sv.statuses["HOURGLASS"] = false
+    self.sv.statuses["OFF"] = false
+    self:sv_saveData()
+    self.network:sendToClients("cl_onUpdateData", self.sv)
+end
+
+function CentralAPI:sv_saveData()
+    print("CentralAPI:sv_saveData() data saved")
+    self.sv.logged = {}
+    sm.storage.save("CentralAPI", self.sv or {})
+end
+
+function CentralAPI:sv_onClientIssue(data)
+    local logged = data.logged
+    local player = data.player
+    local status = logged.status
+    local source = logged.source
+    local content = logged.content
+    local meta = logged.meta
+
+    if status == nil then return end
+    if source == nil then return end
+    if content == nil then return end
+    if meta == nil then return end
+    
+    source.side = "Client"
+    source.mod = "CentralAPI"
+    source.object = "Core"
+
+    meta.time = os.time()
+    meta.shownToClients = false
+end
+
+function CentralAPI:sv_getSetting(name)
+    local settingsData = self.sv.settingsData
+
+    for i = 1, SETTINGS_DATA.settingsPerPage do
+        local setting = settingsData.settings[i]
+        if setting.name == name then
+            return setting
+        end
+    end
+    return nil
+end
+
+function CentralAPI:sv_onClientChangedSettings(data)
+    local name = data.name
+    local value = data.value
+    local player = data.player
+
+    if name == nil then
+        table.insert(self.sv.logged, {
+            status = "WARNING",
+            source = {
+                side = "Server",
+                mod = "CentralAPI",
+                object = "Core",
+            },
+            content = {
+                message = "sv_onClientChangedSettings() name is nil",
+            },
+            meta = {
+                time = os.time(),
+                shownToClients = false
+            }
+        })
+        self.cl.statuses["WARNING"] = true
+        self.network:sendToClients("cl_onUpdateData", self.sv)
+        return
+    end
+    if value == nil then
+        table.insert(self.sv.logged, {
+            status = "WARNING",
+            source = {
+                side = "Server",
+                mod = "CentralAPI",
+                object = "Core",
+            },
+            content = {
+                message = "sv_onClientChangedSettings() value is nil",
+            },
+            meta = {
+                time = os.time(),
+                shownToClients = false
+            }
+        })
+        self.cl.statuses["WARNING"] = true
+        self.network:sendToClients("cl_onUpdateData", self.sv)
+        return
+    end
+    if player == nil then
+        table.insert(self.sv.logged, {
+            status = "WARNING",
+            source = {
+                side = "Server",
+                mod = "CentralAPI",
+                object = "Core",
+            },
+            content = {
+                message = "sv_onClientChangedSettings() player is nil",
+            },
+            meta = {
+                time = os.time(),
+                shownToClients = false
+            }
+        })
+        self.cl.statuses["WARNING"] = true
+        self.network:sendToClients("cl_onUpdateData", self.sv)
+        return
+    end
+
+    local setting = self:sv_getSetting(name)
+
+    if setting == nil then
+        table.insert(self.sv.logged, {
+            status = "WARNING",
+            source = {
+                side = "Server",
+                mod = "CentralAPI",
+                object = "Core",
+            },
+            content = {
+                message = "sv_onClientChangedSettings() client sent invalid setting name",
+            },
+            meta = {
+                time = os.time(),
+                shownToClients = false
+            }
+        })
+        self.cl.statuses["WARNING"] = true
+        self.network:sendToClients("cl_onUpdateData", self.sv)
+        return
+    end
+
+    if setting.clientEditable == false and self.sv.hostPlayer ~= player then
+        sm.log.warning("CentralAPI:sv_onClientChangedSettings() client sent setting that is not editable")
+        table.insert(self.sv.logged, {
+            status = "WARNING",
+            source = {
+                side = "Server",
+                mod = "CentralAPI",
+                object = "Core",
+            },
+            content = {
+                message = "sv_onClientChangedSettings() client sent setting that is not editable",
+            },
+            meta = {
+                time = os.time(),
+                shownToClients = false
+            }
+        })
+        self.cl.statuses["WARNING"] = true
+        self.network:sendToClients("cl_onUpdateData", self.sv)
+        return
+    end
+
+    if setting.clientViewable == false and self.sv.hostPlayer ~= player then
+        sm.log.warning("CentralAPI:sv_onClientChangedSettings() client sent setting that is not viewable")
+        table.insert(self.sv.logged, {
+            status = "WARNING",
+            source = {
+                side = "Server",
+                mod = "CentralAPI",
+                object = "Core",
+            },
+            content = {
+                message = "sv_onClientChangedSettings() client sent setting that is not viewable",
+            },
+            meta = {
+                time = os.time(),
+                shownToClients = false
+            }
+        })
+        self.cl.statuses["WARNING"] = true
+        self.network:sendToClients("cl_onUpdateData", self.sv)
+        return
+    end
+
+    setting.value = value
+
+    self.network:sendToClients("cl_onUpdateData", self.sv)
+end
+
+--------------------------------------------------------------------------------
+--================================== Client ==================================--
+--------------------------------------------------------------------------------
+
+function CentralAPI:client_onCreate( refreshData )
+    print("CentralAPI:client_onCreate()")
+    self.cl = CL_DEFAULT_DATA -- normally  refreshData or CL_DEFAULT_DATA but this for debug
+    for i = 1, SETTINGS_DATA.settingsPerPage do
+        self.cl.settingsData.greenFade[i] = {
+            value = 0,
+            cache = 0,
+            textCache = "",
+            type = nil
+        }
+    end
+    self.interactable:setUvFrameIndex(1)
+    self:cl_initGui()
+end
+
+function CentralAPI:client_onDestroy()
+    print("CentralAPI:client_onDestroy()")
+    self.cl.gui:close()
+    self.cl.gui:destroy()
+end
+
+function CentralAPI:client_onRefresh()
+    print("-----------------------------")
+    print("CentralAPI:client_onRefresh()")
+    self:client_onCreate(self.cl)
+end
+
+function CentralAPI:client_onFixedUpdate(dt)
+    self:cl_animateScreen()
+end
+
+function CentralAPI:client_onInteract(character, state)
+    if not state then return end
+    print("CentralAPI:client_onInteract()", state)
+    if not self.cl.gui or not sm.exists(self.cl.gui) then self:cl_initGui() end
+    self.cl.gui:setVisible("Main_BackPanel", true)
+    self.cl.gui:open()
+end
+
+function CentralAPI:cl_onUpdateData(data)
+    print("CentralAPI:cl_onUpdateData()", data)
+    self.cl.logged = data.logged -- change this later
+    self.cl.statuses = data.statuses
+    self.cl.hostPlayer = data.hostPlayer
+    self.cl.settingsData = data.settingsData -- change this later
+end
+
+--------------------------------------------------------------------------------
+--================================== Sub-Client =============================--
+--------------------------------------------------------------------------------
+
+function CentralAPI:cl_initGui()
+    print("CentralAPI:cl_initGui()")
+    local reopen = false
+    if self.cl.gui and sm.exists(self.cl.gui) then
+        sm.log.info("CentralAPI:cl_initGui() gui already exists, reloading it")
+        reopen = self.cl.gui:isActive()
+        self.cl.recreateGui = true
+        self.cl.gui:close()
+        self.cl.gui:destroy()
+    end
+
+    self.cl.gui = sm.gui.createGuiFromLayout(
+        "$CONTENT_DATA/Gui/Layouts/CentralAPI.layout",
+        false,
+        GUI_DATA
+    )
+    local buttons = {
+        "Main_Dashboard",
+        "Main_Modules",
+        "Main_Logs",
+        "Main_Network",
+        "Main_Settings",
+        "Main_About",
+        "Main_Credits",
+        "Info_Back",
+        "Settings_Back",
+        "Setting 1 Toggle",
+        "Setting 2 Toggle",
+        "Setting 3 Toggle",
+        "Setting 4 Toggle",
+        "Setting 5 Toggle",
+        "Setting 6 Toggle",
+        "Settings Last Page",
+        "Settings Next Page",
+    }
+    for i, button in ipairs(buttons) do
+        self.cl.gui:setButtonCallback(button, "cl_onButtonClick")
+    end
+
+    self.cl.gui:setOnCloseCallback( "cl_onGuiClosed" )
+
+    if reopen then
+        self:cl_openGuiPage("Main")
+        self.cl.gui:open()
+    end
+end
+
+function CentralAPI:cl_onGuiClosed()
+    if self.cl.recreateGui then
+        self.cl.recreateGui = false
+        return
+    end
+    print("CentralAPI:cl_onGuiClosed()")
+    self.cl.gui:setVisible("Main_BackPanel", false)
+    self.cl.gui:setVisible("Settings_BackPanel", false)
+    self.cl.gui:setVisible("Info_BackPanel", false)
+end
+
+local function stepToScale(step)
+    step = math.floor(step * 10000 + 0.5) / 10000
+    step = tostring(step)
+
+    local decimals = step:match("%.(%d+)")
+    if not decimals then
+        return 1
+    end
+
+    return 10 ^ #decimals
+end
+
+function CentralAPI:cl_loadSettings()
+
+    print(self.cl.settingsData)
+
+    self.cl.gui:setVisible("Settings Last Page", self.cl.settingsData.page > 1)
+    self.cl.gui:setVisible("Settings Next Page", self.cl.settingsData.settings[(self.cl.settingsData.page - 1) * SETTINGS_DATA.settingsPerPage + SETTINGS_DATA.settingsPerPage] ~= nil)
+    self.cl.gui:setText("Settings Page", tostring(self.cl.settingsData.page))
+
+    for i,greenFade in pairs(self.cl.settingsData.greenFade) do
+        greenFade.value = 0
+    end
+
+    for slot = 1, SETTINGS_DATA.settingsPerPage do
+        local index = slot + ((self.cl.settingsData.page - 1) * SETTINGS_DATA.settingsPerPage)
+
+        local prefix = "Setting " .. slot .. " "
+    
+        self.cl.gui:setVisible(prefix .. "Name", false)
+        self.cl.gui:setVisible(prefix .. "Toggle", false)
+        self.cl.gui:setVisible(prefix .. "String BG", false)
+        self.cl.gui:setVisible(prefix .. "Color BG", false)
+        self.cl.gui:setVisible(prefix .. "Color Icon BG", false)
+        self.cl.gui:setVisible(prefix .. "Vector3 X BG", false)
+        self.cl.gui:setVisible(prefix .. "Vector3 Y BG", false)
+        self.cl.gui:setVisible(prefix .. "Vector3 Z BG", false)
+        self.cl.gui:setVisible(prefix .. "Vector3 X Static", false)
+        self.cl.gui:setVisible(prefix .. "Vector3 Y Static", false)
+        self.cl.gui:setVisible(prefix .. "Vector3 Z Static", false)
+        self.cl.gui:setVisible(prefix .. "Slider", false)
+        self.cl.gui:setVisible(prefix .. "Slider Value", false)
+        
+        local setting = self.cl.settingsData.settings[index]
+        if not setting then
+            goto continue
+        end
+
+        if setting.type == "integer" or setting.type == "float" then
+            if setting.isSlider then
+                if setting.limit == nil then
+                    sm.log.warning("CentralAPI:cl_loadSettings() slider setting does not have limits, removing slider")
+                    setting.isSlider = false
+                elseif setting.limit.minValue == nil then
+                    sm.log.warning("CentralAPI:cl_loadSettings() slider setting does not have minValue, removing slider")
+                    setting.isSlider = false
+                elseif setting.limit.maxValue == nil then
+                    sm.log.warning("CentralAPI:cl_loadSettings() slider setting does not have maxValue, removing slider")
+                    setting.isSlider = false
+                elseif setting.limit.step == nil then
+                    sm.log.warning("CentralAPI:cl_loadSettings() slider setting does not have step, removing slider")
+                    setting.isSlider = false
+                end
+            end
+
+            local isSlider = setting.isSlider and setting.limit ~= nil and setting.limit.minValue ~= nil and setting.limit.maxValue ~= nil and setting.limit.step ~= nil
+
+        else
+            if setting.isSlider then
+                sm.log.warning("CentralAPI:cl_loadSettings() setting is not an integer or float, removing slider")
+                setting.isSlider = false
+            end
+        end
+        
+        self.cl.gui:setVisible(prefix .. "Name", setting.name ~= nil)
+        self.cl.gui:setText(prefix .. "Name", setting.name)
+        if setting.type == "toggle" then
+            local button = prefix .. "Toggle"
+
+            self.cl.gui:setText(button, capitalize(tostring(setting.value)))
+            self.cl.gui:setVisible(button, true)
+
+        elseif setting.type == "integer" then
+            local editBox = prefix .. "String"
+            local slider = prefix .. "Slider"
+
+            if setting.isSlider then
+                self.cl.gui:setSliderCallback( slider, "cl_onSliderCallback")
+                self.cl.gui:setText(slider.." Value", tostring(setting.value))
+                self.cl.gui:setVisible(slider, true)
+                self.cl.gui:setVisible(slider.." Value", true)
+            else
+                self.cl.gui:setTextAcceptedCallback( editBox, "cl_onTextAcceptedCallback")
+                self.cl.gui:setText(editBox, tostring(setting.value))
+                self.cl.gui:setVisible(editBox, true)
+                self.cl.gui:setVisible(editBox.." BG", true)
+            end
+
+        elseif setting.type == "float" then
+            local editBox = prefix .. "String"
+            local slider = prefix .. "Slider"
+            local isSlider = setting.slider ~= nil
+            local stepMult = setting.stepMult or 1
+
+            if setting.isSlider then
+                self.cl.gui:setSliderCallback( slider, "cl_onSliderCallback")
+                self.cl.gui:setText(slider.." Value", tostring(math.floor(setting.value * stepMult + 0.5) / stepMult))
+                self.cl.gui:setVisible(slider, true)
+                self.cl.gui:setVisible(slider.." Value", true)
+            else
+                self.cl.gui:setTextAcceptedCallback( editBox, "cl_onTextAcceptedCallback")
+                self.cl.gui:setText(editBox, tostring(math.floor(setting.value * stepMult + 0.5) / stepMult))
+                self.cl.gui:setVisible(editBox, true)
+                self.cl.gui:setVisible(editBox.." BG", true)
+            end
+
+        elseif setting.type == "string" then
+            local editBox = prefix .. "String"
+
+            self.cl.gui:setTextAcceptedCallback( editBox, "cl_onTextAcceptedCallback")
+            self.cl.gui:setText(editBox, setting.value)
+            self.cl.gui:setVisible(editBox, true)
+            self.cl.gui:setVisible(editBox.." BG", true)
+
+        elseif setting.type == "color" then
+            local editBox = prefix .. "Color"
+
+            self.cl.gui:setTextAcceptedCallback( editBox, "cl_onTextAcceptedCallback")
+            self.cl.gui:setText(editBox, colorToHex(setting.value))
+            self.cl.gui:setVisible(editBox, true)
+
+            self.cl.gui:setColor(prefix .. "Color Icon", setting.value)
+            self.cl.gui:setVisible(prefix .. "Color BG", true)
+            self.cl.gui:setVisible(prefix .. "Color Icon BG", true)
+            
+
+        elseif setting.type == "vector3" then
+
+            local buttonX = prefix .. "Vector3 X"
+            local buttonY = prefix .. "Vector3 Y"
+            local buttonZ = prefix .. "Vector3 Z"
+
+            self.cl.gui:setTextAcceptedCallback( buttonX, "cl_onTextAcceptedCallback")
+            self.cl.gui:setTextAcceptedCallback( buttonY, "cl_onTextAcceptedCallback")
+            self.cl.gui:setTextAcceptedCallback( buttonZ, "cl_onTextAcceptedCallback")
+            
+            self.cl.gui:setText(buttonX, tostring(math.floor(setting.value.x * 10000 + 0.5) / 10000))
+            self.cl.gui:setText(buttonY, tostring(math.floor(setting.value.y * 10000 + 0.5) / 10000))
+            self.cl.gui:setText(buttonZ, tostring(math.floor(setting.value.z * 10000 + 0.5) / 10000))
+
+            self.cl.gui:setVisible(buttonX.." BG", true)
+            self.cl.gui:setVisible(buttonY.." BG", true)
+            self.cl.gui:setVisible(buttonZ.." BG", true)
+
+            self.cl.gui:setVisible(buttonX.." Static", true)
+            self.cl.gui:setVisible(buttonY.." Static", true)
+            self.cl.gui:setVisible(buttonZ.." Static", true)
+            
+            self.cl.gui:setVisible(buttonX, true)
+            self.cl.gui:setVisible(buttonY, true)                
+            self.cl.gui:setVisible(buttonZ, true)
+        end
+        ::continue::
+    end
+end
+
+function CentralAPI:cl_openGuiPage(page)
+    local closedPages = {
+        "Main",
+        "Settings",
+        "Info"
+    }
+    for i, closedPage in ipairs(closedPages) do
+        self.cl.gui:setVisible(closedPage.."_BackPanel", false)
+    end
+
+    if page == "Main" then
+        self.cl.gui:setText("Title", "#00C2FFCentral API")
+        self.cl.gui:setVisible("Main_BackPanel", true)
+        return
+    elseif page == "Settings" then
+        self.cl.gui:setVisible("Main_BackPanel", false)
+        self.cl.gui:setText("Title", "#00C2FFSETTINGS")
+
+        for i = 1, SETTINGS_DATA.settingsPerPage do
+            self.cl.gui:setVisible("Setting "..i.." Toggle", false)
+        end
+
+        self:cl_loadSettings()
+
+        self.cl.gui:setVisible("Settings_BackPanel", true)
+        return
+    elseif page == "About" then
+        self.cl.gui:setText("Title", "#00C2FFAbout Central API")
+        self.cl.gui:setText("Text", GUI_TEXTS["About"])
+        self.cl.gui:setVisible("Info_BackPanel", true)
+        return
+    elseif page == "Credits" then
+        self.cl.gui:setText("Title", "#00C2FFCredits")
+        self.cl.gui:setText("Text", GUI_TEXTS["Credits"])
+        self.cl.gui:setVisible("Info_BackPanel", true)
+        return
+    end
+    print("CentralAPI:cl_openGuiPage() Failed to open page", page)
+end
+
+function CentralAPI:cl_onButtonClick(buttonName)
+    if buttonName == "Main_Settings" then
+        self:cl_openGuiPage("Settings")
+        return
+    end
+
+    for i = 1, SETTINGS_DATA.settingsPerPage do
+        if buttonName == "Setting " .. i .. " Toggle" then
+            local settingIndex = i + ((self.cl.settingsData.page-1) * SETTINGS_DATA.settingsPerPage)
+            local setting = self.cl.settingsData.settings[settingIndex]
+
+            if setting.type == "toggle" then
+                setting.value = not setting.value
+                self.cl.gui:setText("Setting " .. i .. " Toggle", capitalize(tostring(setting.value)))
+            end
+            return
+        end
+    end
+
+    if buttonName == "Settings Last Page" then
+        self.cl.settingsData.page = self.cl.settingsData.page - 1
+        self:cl_loadSettings()
+        return
+    end
+
+    if buttonName == "Settings Next Page" then
+        self.cl.settingsData.page = self.cl.settingsData.page + 1
+        self:cl_loadSettings()
+        return
+    end
+
+    if buttonName == "Main_About" then
+        self:cl_openGuiPage("About")
+        return
+    end
+    if buttonName == "Main_Credits" then
+        self:cl_openGuiPage("Credits")
+        return
+    end
+    if buttonName == "Info_Back" then
+        self:cl_openGuiPage("Main")
+        return
+    end
+    if buttonName == "Settings_Back" then
+        self:cl_openGuiPage("Main")
+        return
+    end
+    print("CentralAPI:cl_onButtonClick() unhandled button", buttonName)
+end
+
+function CentralAPI:cl_onTextAcceptedCallback(widget, text)
+    print("CentralAPI:cl_onTextAcceptedCallback()", widget, text)
+    for i = 1, SETTINGS_DATA.settingsPerPage do
+        local settingIndex = tonumber(widget:match("^Setting%s+(%d+)"))
+        local index = settingIndex + ((self.cl.settingsData.page-1) * SETTINGS_DATA.settingsPerPage)
+        local setting = self.cl.settingsData.settings[index]
+        if not setting then
+            sm.log.warning("CentralAPI:cl_onTextAcceptedCallback() setting index " .. index .. " is nil")
+            return
+        end
+
+        if "Setting " .. i .. " String" == widget then
+
+            if setting.type == "integer" then
+                local text = text:gsub("[^%d%.%-%+eE]", "")
+                if not tonumber(text) then
+                    text = setting.value
+                    self.cl.gui:setText(widget, tostring(setting.value))
+                    return
+                end
+
+                local value = math.floor(tonumber(text))
+
+                if setting.limit ~= nil then
+                    if value < setting.limit.minValue then
+                        value = setting.limit.minValue
+                    elseif value > setting.limit.maxValue then
+                        value = setting.limit.maxValue
+                    end
+                    value = math.floor(value / setting.limit.step) * setting.limit.step
+                end
+
+                setting.value = value
+                print(self.cl.settingsData.greenFade)
+                self.cl.settingsData.greenFade[i] = {
+                    value = 3,
+                    cache = self.cl.settingsData.greenFade[i].cache or 0,
+                    textCache = tostring(value),
+                    type = "integer"
+                }
+                self.cl.gui:setText(widget,tostring(value))
+                return
+            elseif setting.type == "float" then
+                local text = text:gsub("[^%d%.%-%+eE]", "")
+                if not tonumber(text) then
+                    text = setting.value
+                    self.cl.gui:setText(widget, tostring(setting.value))
+                    return
+                end
+
+                local value = tonumber(text)
+
+                if setting.limit ~= nil then
+                    if value < setting.limit.minValue then
+                        value = setting.limit.minValue
+                    elseif value > setting.limit.maxValue then
+                        value = setting.limit.maxValue
+                    end
+                    if value % setting.limit.step ~= 0 then
+                        value = math.floor(value / setting.limit.step) * setting.limit.step
+                    end
+                end
+
+                setting.value = value
+                self.cl.gui:setText(widget, tostring(value))
+            end
+            return
+        elseif "Setting " .. i .. " Color" == widget then
+            local prefix = "Setting " .. i .. " "
+            local function validHex(hex)
+                return hex:match("^%x%x%x%x%x%x$")
+            end
+
+            local text = text:gsub("[^%x]", "")
+            if not validHex(text) then
+                text = colorToHex(setting.value)
+                self.cl.gui:setText(widget, text)
+                return
+            end
+            
+            local function hexToRGB(text)
+                text = text:gsub("#", "")
+
+                if #text == 3 then
+                    local r = tonumber(text:sub(1,1)..text:sub(1,1), 16)
+                    local g = tonumber(text:sub(2,2)..text:sub(2,2), 16)
+                    local b = tonumber(text:sub(3,3)..text:sub(3,3), 16)
+                    return r, g, b
+                end
+
+                local r = tonumber(text:sub(1,2), 16) or 0
+                local g = tonumber(text:sub(3,4), 16) or 0
+                local b = tonumber(text:sub(5,6), 16) or 0
+
+                return r/255, g/255, b/255
+            end
+
+            setting.value = sm.color.new(hexToRGB(text))
+            self.cl.gui:setText(widget, colorToHex(setting.value))
+            self.cl.gui:setColor(prefix .. "Color Icon", setting.value)
+            return
+        elseif "Setting " .. i .. " Vector3 X" == widget then
+            local prefix = "Setting " .. i .. " "
+            local text = text:gsub("[^%d%.%-%+eE]", "")
+
+            if not tonumber(text) then
+                text = setting.value.x
+                self.cl.gui:setText(widget, tostring(setting.value.x))
+                return
+            end
+
+            local value = tonumber(text)
+            local stepMult = 1
+
+            if setting.limit ~= nil then
+                if setting.limit.minValue ~= nil then
+                    if value < setting.limit.minValue.x then
+                        value = setting.limit.minValue.x
+                    end
+                end
+                if setting.limit.maxValue ~= nil then
+                    if value > setting.limit.maxValue.x then
+                        value = setting.limit.maxValue.x
+                    end
+                end
+                if setting.limit.step ~= nil then
+                    if value % setting.limit.step.x ~= 0 then
+                        value = math.floor(value / setting.limit.step.x) * setting.limit.step.x
+                    end
+                end
+                stepMult = setting.limit.step.x
+            end
+
+            setting.value = sm.vec3.new(value, setting.value.y, setting.value.z)
+            self.cl.gui:setText(widget, tostring(math.floor(value * stepMult + 0.5) / stepMult))
+            return
+        elseif "Setting " .. i .. " Vector3 Y" == widget then
+            local prefix = "Setting " .. i .. " "
+            local text = text:gsub("[^%d%.%-%+eE]", "")
+
+            if not tonumber(text) then
+                text = setting.value.y
+                self.cl.gui:setText(widget, tostring(setting.value.y))
+                return
+            end
+
+            local value = tonumber(text)
+
+            if setting.limit ~= nil then
+                if setting.limit.minValue ~= nil then
+                    if value < setting.limit.minValue.y then
+                        value = setting.limit.minValue.y
+                    end
+                end
+                if setting.limit.maxValue ~= nil then
+                    if value > setting.limit.maxValue.y then
+                        value = setting.limit.maxValue.y
+                    end
+                end
+                if setting.limit.step ~= nil then
+                    if value % setting.limit.step.y ~= 0 then
+                        value = math.floor(value / setting.limit.step.y) * setting.limit.step.y
+                    end
+                end
+            end
+
+            setting.value = sm.vec3.new(setting.value.x, value, setting.value.z)
+            local stepMult = stepToScale(setting.limit.step.y)
+            self.cl.gui:setText(widget, tostring(math.floor(value * stepMult + 0.5) / stepMult))
+            return
+        elseif "Setting " .. i .. " Vector3 Z" == widget then
+            local prefix = "Setting " .. i .. " "
+            local text = text:gsub("[^%d%.%-%+eE]", "")
+
+            if not tonumber(text) then
+                text = setting.value.z
+                self.cl.gui:setText(widget, tostring(setting.value.z))
+                return
+            end
+
+            local value = tonumber(text)
+
+            if setting.limit ~= nil then
+                if setting.limit.minValue ~= nil then
+                    if value < setting.limit.minValue.z then
+                        value = setting.limit.minValue.z
+                    end
+                end
+                if setting.limit.maxValue ~= nil then
+                    if value > setting.limit.maxValue.z then
+                        value = setting.limit.maxValue.z
+                    end
+                end
+                if setting.limit.step ~= nil then
+                    if value % setting.limit.step.z ~= 0 then
+                        value = math.floor(value / setting.limit.step.z) * setting.limit.step.z
+                    end
+                end
+            end
+
+            setting.value = sm.vec3.new(setting.value.x, setting.value.y, value)
+            local stepMult = stepToScale(setting.limit.step.z)
+            self.cl.gui:setText(widget, tostring(math.floor(value * stepMult + 0.5) / stepMult))
+            return
+        end
+    end
+    sm.log.warning("CentralAPI:cl_onTextAcceptedCallback() unhandled widget " .. widget)
+    return
+end
+
+function CentralAPI:cl_onSliderCallback(widget, value)
+    print("CentralAPI:cl_onSliderCallback()", widget, value/10000)
+    for i = 1, SETTINGS_DATA.settingsPerPage do
+        if "Setting " .. i .. " Slider" == widget then
+            local settingIndex = tonumber(widget:sub(9,-8))
+            local index = settingIndex + ((self.cl.settingsData.page-1) * SETTINGS_DATA.settingsPerPage)
+            local setting = self.cl.settingsData.settings[index]
+            local stepMult = setting.stepMult or 1
+            if not setting then return end
+            if setting.type == "integer" and setting.isSlider then
+                setting.value = math.floor(sm.util.lerp( setting.limit.minValue, setting.limit.maxValue, value/10000 ))
+                setting.value = math.floor(setting.value / setting.limit.step) * setting.limit.step
+                self.cl.gui:setText(widget.." Value", tostring(setting.value))
+            elseif setting.type == "float" and setting.isSlider then
+                setting.value = sm.util.lerp( setting.limit.minValue, setting.limit.maxValue, value/10000 )
+                setting.value = math.floor(setting.value / setting.limit.step) * setting.limit.step
+                
+                self.cl.gui:setText(widget.." Value", tostring(math.floor(setting.value * stepMult + 0.5) / stepMult))
+            end
+        end
+    end
+end
+
+function CentralAPI:cl_animateScreen()
+    local statues = self.cl.statuses
+    local highestStatus = "OFF"
+    local highestPriority = -1
+    for status, active in pairs(statues) do
+        local priority = STATUS_TO_INDEX[status]
+        if priority > highestPriority and active then
+            highestPriority = priority
+            highestStatus = status
+        end
+    end
+
+    if STATUS_PROPERTIES[highestStatus].blink ~= 0 then
+        if sm.game.getCurrentTick() % math.floor(STATUS_PROPERTIES[highestStatus].blink) == 0 then
+            self.interactable:setUvFrameIndex(STATUS_PROPERTIES[highestStatus].UVIndex)
+            self.cl.blink = not self.cl.blink 
+        end
+    else
+        self.cl.blink = false
+    end
+
+    if self.cl.blink then
+        self.interactable:setUvFrameIndex(STATUS_PROPERTIES["OFF"].UVIndex)
+    else
+        local UVFrame = self.interactable:getUvFrameIndex()
+        local newUVFrame = STATUS_PROPERTIES[highestStatus].UVIndex
+        if UVFrame ~= newUVFrame then
+            sm.log.info("CentralAPI:cl_animateScreen() UVFrame changed to " .. newUVFrame)
+            self.interactable:setUvFrameIndex(newUVFrame)
+        end
+    end
+end
+
+function CentralAPI:cl_animateSettings(dt)
+    local greenFade = self.cl.settingsData.greenFade
+    for i,greenFade in pairs(greenFade) do
+        if greenFade.value == 0 and greenFade.cache ~= 0 then -- it was disabled randomly
+            print("CentralAPI:cl_animateSettings() setting " .. i .. " was disabled randomly")
+            if greenFade.type == nil then return end
+            self.cl.gui:setText("Setting " .. i .. " "..greenFade.type, tostring(greenFade.textCache))
+            greenFade.value = greenFade.cache
+            return
+        end
+        if greenFade.value > 0 then
+            greenFade.value = greenFade.value - dt
+            if greenFade.value < 0 then
+                greenFade.value = 0
+                greenFade.cache = 0
+            end
+            self.cl.gui:setColor("Setting " .. i .. " Color", sm.color.new(1, 1, 1, greenFade.cache/greenFade.value))
+        end
+    end
+end
