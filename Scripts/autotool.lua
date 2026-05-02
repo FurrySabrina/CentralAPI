@@ -70,6 +70,7 @@ end
 
 function autotool:server_onCreate(refreshData, remote)
     if remote then return end
+    if not sm.isHost then return end
     print("autotool:server_onCreate()")
     self.sv = refreshData or {
         cache = {
@@ -81,6 +82,7 @@ end
 
 function autotool:server_onRefresh(_, remote)
     if remote then return end
+    if not sm.isHost then return end
     print("autotool:server_onRefresh()")
     self:server_onCreate(self.sv)
 
