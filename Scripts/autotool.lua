@@ -60,7 +60,7 @@ local function getWorldRay(pos)
         local modifiedResult = sm.vec3.new(pointWorld.x, pointWorld.y, math.ceil( (pointWorld.z) * 4 ) / 4)
         return modifiedResult
     else
-        return nil
+        return false
     end
 end
 
@@ -68,7 +68,8 @@ end
 --================================== Server ==================================--
 --------------------------------------------------------------------------------
 
-function autotool:server_onCreate(refreshData)
+function autotool:server_onCreate(refreshData, remote)
+    if remote then return end
     print("autotool:server_onCreate()")
     self.sv = refreshData or {
         cache = {
@@ -78,7 +79,8 @@ function autotool:server_onCreate(refreshData)
     }
 end
 
-function autotool:server_onRefresh()
+function autotool:server_onRefresh(_, remote)
+    if remote then return end
     print("autotool:server_onRefresh()")
     self:server_onCreate(self.sv)
 
@@ -91,7 +93,8 @@ function autotool:server_onRefresh()
     end
 end
 
-function autotool:server_onFixedUpdate(dt)
+function autotool:server_onFixedUpdate(dt, remote)
+    if remote then return end
     if not sm.isHost then return end
     local CentralAPI = nil
     local search = {}
@@ -133,6 +136,7 @@ function autotool:server_onFixedUpdate(dt)
         end
 
         CentralAPI = lowestShape
+        if not CentralAPI then goto skipSearch end
         self.sv.cache.position = CentralAPI:getWorldPosition()
         self.sv.cache.rotation = sm.quat.getAt(CentralAPI:getWorldRotation())
     elseif #search == 1 then
@@ -148,7 +152,7 @@ function autotool:server_onFixedUpdate(dt)
 
     if not CentralAPI then
         sm.log.info("autotool:server_onFixedUpdate() creating new CentralAPI")
-        local position = getWorldRay({x=0, y=0})
+        local position = getWorldRay({x=0, y=0}) or sm.vec3.new(0, 0, 0)
         local rotation = sm.quat.fromEuler(sm.vec3.new(90, 90, 0))
         CentralAPI = sm.shape.createPart(
             CENTRAL_API_UUID,
@@ -193,7 +197,7 @@ function autotool:server_onFixedUpdate(dt)
     if sm.vec3.length(diffPos) > 0.01 or sm.vec3.length(diffRot) > 0.01 then
         CentralAPI:destroyShape()
         sm.log.warning("autotool:server_onFixedUpdate() replacing CentralAPI due to position or rotation mismatch")
-        local position = getWorldRay({x=0, y=0})
+        local position = getWorldRay({x=0, y=0}) or sm.vec3.new(0, 0, 0)
         local rotation = sm.quat.fromEuler(sm.vec3.new(90, 90, 0))
         CentralAPI = sm.shape.createPart(
             CENTRAL_API_UUID,
