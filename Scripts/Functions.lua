@@ -90,9 +90,20 @@ function Functions:lerpColor(start, end_, t)
 end
 
 function Functions:sv_detectClientCheat(funcName, remote)
-    if remote == nil then return false end -- only blocks client side
+    if remote == nil then return false end -- only runs when client tries to cheat
+    if remote == self.sv.hostPlayer then return false end -- only blocks client side
     if funcName == nil then funcName = "sv_detectClientCheat" end
     sm.log.warning("Functions:detectClientCheat() " .. funcName .. " illegally called by " .. remote.name .. "'s client")
     self:sv_onStatusSet({ status = "WARNING", active = true })
     return true -- blocks any more code
+end
+
+function Functions:isTableEqual(t1, t2)
+    for k, v in pairs(t1) do
+        if t2[k] ~= v then return false end
+    end
+    for k, v in pairs(t2) do
+        if t1[k] ~= v then return false end
+    end
+    return true
 end

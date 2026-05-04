@@ -22,7 +22,7 @@ local chances = {
     limitValues = {
         minValue = {low = -1000, high = 0},
         maxValue = {low = 0, high = 1000},
-        step = {low = 0.1, high = 1},
+        step = {low = 0.1, high = 10},
         floatDevision = {low = 1, high = 1000}
     },
     slider = 0.3,
@@ -337,6 +337,9 @@ function Settings:cl_onSettingSliderCallback(widget, value)
             if not setting then return end
 
             local newValue = round3(toStep(sm.util.lerp(setting.limit.minValue, setting.limit.maxValue, value), setting.limit.step))
+            if setting.type == "integer" then
+                newValue = math.floor(newValue)
+            end
             if setting.value ~= newValue then
                 self.cl.settingsData.fade[i] = {
                     time = SETTINGS_DATA.fadeTime,
@@ -346,7 +349,7 @@ function Settings:cl_onSettingSliderCallback(widget, value)
                 }
                 self:cl_onSettingChanged(setting)
             end
-            setting.value = round3(toStep(sm.util.lerp(setting.limit.minValue, setting.limit.maxValue, value), setting.limit.step))
+            setting.value = newValue
             layout:setText("Setting " .. i .. " Slider Value", tostring(setting.value))
             return
         end
@@ -609,6 +612,9 @@ function Settings:cl_onOpenSettings()
             local edit = prefix .. "String"
             local slider = prefix .. "Slider"
             local v = setting.limit ~= nil and limit(math.floor(setting.value), setting.limit.minValue, setting.limit.maxValue, setting.limit.step) or math.floor(setting.value)
+            if setting.type == "integer" then
+                v = math.floor(v)
+            end
 
             if isSlider then
                 layout:setText(slider .. " Value", tostring(v))

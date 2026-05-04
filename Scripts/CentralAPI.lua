@@ -6,6 +6,7 @@ dofile("GUI.lua")
 dofile("Status.lua")
 dofile("Functions.lua")
 dofile("Settings.lua")
+dofile("Network.lua")
 
 local function includeMethods(target, source)
     if not source then return end
@@ -22,6 +23,7 @@ includeMethods(CentralAPI, GUI)
 includeMethods(CentralAPI, Status)
 includeMethods(CentralAPI, Functions)
 includeMethods(CentralAPI, Settings)
+includeMethods(CentralAPI, Network)
 
 --------------------------------------------------------------------------------
 --================================== Helpers =================================--
@@ -72,6 +74,7 @@ function CentralAPI:server_onCreate(_, remote)
         self:sv_onStatusCreate()
         self:sv_onSettingsCreate()
         self:sv_onGetHostPlayer()
+        self:sv_onTECreate()
     end)
     if not success then
         sm.log.error("CentralAPI:server_onCreate() " .. err)
@@ -84,7 +87,7 @@ function CentralAPI:server_onRefresh(_, remote)
     local success, err = pcall(function()
         sm.log.info("CentralAPI:server_onRefresh()")
         self:sv_onStatusRefresh()
-        self:sv_onSettingsRefresh()
+        self:sv_onTERefresh()
     end)
     if not success then
         sm.log.error("CentralAPI:server_onRefresh() " .. err)
@@ -100,10 +103,12 @@ function CentralAPI:checkScripts(dt, remote)
     dofile("$CONTENT_DATA/Scripts/Status.lua")
     dofile("$CONTENT_DATA/Scripts/Functions.lua")
     dofile("$CONTENT_DATA/Scripts/Settings.lua")
+    dofile("$CONTENT_DATA/Scripts/Network.lua")
     includeMethods(CentralAPI, GUI)
     includeMethods(CentralAPI, Status)
     includeMethods(CentralAPI, Functions)
     includeMethods(CentralAPI, Settings)
+    includeMethods(CentralAPI, Network)
 end
 
 function CentralAPI:server_onFixedUpdate(dt, remote)
@@ -111,6 +116,7 @@ function CentralAPI:server_onFixedUpdate(dt, remote)
     local success, err = pcall(function()
         self:checkScripts(dt)
         if not self.sv.hostPlayer then self:sv_onGetHostPlayer() end
+        self:sv_onTEFixedUpdate(dt)
     end)
     if not success then
         sm.log.error("CentralAPI:server_onFixedUpdate() " .. err)
@@ -137,7 +143,8 @@ function CentralAPI:client_onCreate()
     end
 end
 
-function CentralAPI:client_onRefresh()
+function CentralAPI:client_onRefresh(_, remote)
+    if self:sv_detectClientCheat({ remote = remote, funcName = "client_onRefresh" }) then return end
     local success, err = pcall(function()
         sm.log.info("CentralAPI:client_onRefresh()")
         self:cl_onRefreshGUI()
@@ -162,6 +169,7 @@ function CentralAPI:client_onFixedUpdate(dt)
 end
 
 function CentralAPI:client_onUpdate(dt)
+    if self.cl.status.statuses.ERROR then return end
     local success, err = pcall(function()
         self:cl_onSettingsUpdate(dt)
     end)

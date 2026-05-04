@@ -1,0 +1,527 @@
+tableExtractor = class()
+
+---------------------------------------------------------------------------------
+--================================== Globals ==================================--
+---------------------------------------------------------------------------------
+
+local uuids = {
+    block = sm.uuid.new("628b2d61-5ceb-43e9-8334-a4135566df7a"), -- plastic block
+    interactable = sm.uuid.new("ea10d1af-b97a-46fb-8895-dfd1becb53bb"), -- water container
+    joint = sm.uuid.new("4a1b886b-913e-4aad-b5b6-6e41b0db23a6"), -- bearing
+    unit = sm.uuid.new("c8bfb8f3-7efc-49ac-875a-eb85ac0614db"), -- haybot
+    tool = sm.uuid.new("2d7f1278-ac93-4039-9eb2-d31715ea10ff"), -- spudgun
+    piston = sm.uuid.new("260b4597-f1ac-409c-8e6b-90c998c5fe94"), -- piston
+}
+
+BLOCK = BLOCK or nil
+INTERACTABLE = INTERACTABLE or nil
+CONTAINER = CONTAINER or nil
+JOINT = JOINT or nil
+HARVESTABLE = HARVESTABLE or nil
+AREATRIGGER = AREATRIGGER or nil
+UNIT = UNIT or nil
+WORLD = WORLD or nil
+TOOL = TOOL or nil
+PLAYER = PLAYER or nil
+BUILDERGUIDE = BUILDERGUIDE or nil
+PORTAL = PORTAL or nil
+PISTON = PISTON or nil
+
+local argumentNames = {
+    "boolean",
+    "number",
+    "string",
+    "color",
+    "vec3",
+    "table",
+    "quat",
+    "container",
+    "uuid",
+    "shape",
+    "body",
+    "joint",
+    "harvestable",
+    "areatrigger",
+    "unit",
+    "interactable",
+    "integer",
+    "builderguide",
+    "world",
+    "tool",
+    "portal",
+    "player",
+    "character",
+    "scriptableobject",
+    "userdata"
+}
+
+local argumentLimits = {
+    number = 1000,
+    string = 25,
+    vec3 = 100,
+}
+
+local arguments = {
+    boolean = function()
+        return math.random() > 0.5
+    end,
+    number = function()
+        return math.random(argumentLimits.number)
+    end,
+    string = function()
+        local str = ""
+        for i = 1, math.random(argumentLimits.string) do
+            str = str .. string.char(math.random(97, 122))
+        end
+        return str
+    end,
+    color = function()
+        return sm.color.new(math.random(), math.random(), math.random())
+    end,
+    vec3 = function()
+        return sm.vec3.new(math.random(argumentLimits.vec3), math.random(argumentLimits.vec3), math.random(argumentLimits.vec3))
+    end,
+    table = function()
+        return {}
+    end,
+    quat = function()
+        return sm.quat.new(math.random(), math.random(), math.random(), math.random())
+    end,
+    container = function()
+        return CONTAINER
+    end,
+    uuid = function()
+        return sm.uuid.generateRandom()
+    end,
+    shape = function()
+        return BLOCK
+    end,
+    body = function()
+        if not BLOCK then return nil end
+        return BLOCK:getBody()
+    end,
+    joint = function()
+        return JOINT
+    end,
+    harvestable = function()
+        return HARVESTABLE
+    end,
+    areatrigger = function()
+        return AREATRIGGER
+    end,
+    unit = function()
+        return UNIT
+    end,
+    interactable = function()
+        return INTERACTABLE
+    end,
+    integer = function()
+        return math.random(argumentLimits.number)
+    end,
+    builderguide = function()
+        if not BLOCK then return nil end
+        return sm.builderGuide.createBuilderGuide( "$SURVIVAL_DATA/BuilderGuides/builderguide_startercar.json", BLOCK )
+    end,
+    world = function()
+        return WORLD
+    end,
+    tool = function()
+        return TOOL
+    end,
+    portal = function()
+        return PORTAL
+    end,
+    player = function()
+        return PLAYER
+    end,
+    character = function()
+        return PLAYER:getCharacter()
+    end,
+    scriptableobject = function()
+        return INTERACTABLE
+    end,
+    userdata = function()
+        return BLOCK
+    end,
+    piston = function()
+        return JOINT
+    end
+}
+
+local regex = {
+    Wrong_Arg_Amount = {"^Expected at least (%d+) arguments%s+%(got%s+(%d+)%)$", "^Expected (%d+) arguments%s+%(got%s+(%d+)%)$"},
+    Called_Server = "^Sandbox violation: calling server function from client callback.$",
+    Called_Client = "^Sandbox violation: calling client function from server callback.$",
+    Not_Game_Mode1 = {"^Not available this game mode$", "^Not available in this game mode$"},
+    ScriptTypeID = "^Sandbox violation: mismatching scriptTypeID.$",
+    World_Dependent = "^Calling world dependent functions in a no world script!$",
+    Wrong_Argument = "^bad argument #(%d+) to '%?' %((.+) expected, got (.+)%)$"
+}
+
+local errorCodes = {
+    unknown = -1,
+    none = 0,
+    Wrong_Arg_Amount = 1,
+    Called_Server = 2,
+    Called_Client = 3,
+    Not_Game_Mode = 4,
+    ScriptTypeID = 5,
+    World_Dependent = 6
+}
+
+--------------------------------------------------------------------------------
+--================================== Helpers =================================--
+--------------------------------------------------------------------------------
+
+local function translateError(line)
+    if not line then return nil end
+    for _, v in pairs(regex.Wrong_Arg_Amount) do
+        if string.match(line, v) then
+            local result = {}
+            result.errorCode = errorCodes.Wrong_Arg_Amount
+            local expected, got = string.match(line, v)
+            result.expected = expected
+            return result
+        end
+    end
+    if string.match(line, regex.Called_Server) then
+        return {errorCode = errorCodes.Called_Server}
+    end
+    if string.match(line, regex.Called_Client) then
+        return {errorCode = errorCodes.Called_Client}
+    end
+    for _, v in pairs(regex.Not_Game_Mode1) do
+        if string.match(line, v) then
+            return {errorCode = errorCodes.Not_Game_Mode}
+        end
+    end
+    if string.match(line, regex.ScriptTypeID) then
+        return {errorCode = errorCodes.ScriptTypeID}
+    end
+    if string.match(line, regex.World_Dependent) then
+        return {errorCode = errorCodes.World_Dependent}
+    end
+    sm.log.error("CentralAPI:translateError() " .. line)
+    return {errorCode = errorCodes.unknown}
+end
+
+local function getErrorCode(line)
+    for _, v in pairs(regex.Wrong_Arg_Amount) do
+        if string.match(line, v) then
+            return errorCodes.Wrong_Arg_Amount
+        end
+    end
+    if string.match(line, regex.Called_Server) then
+        return errorCodes.Called_Server
+    end
+    if string.match(line, regex.Called_Client) then
+        return errorCodes.Called_Client
+    end
+    for _, v in pairs(regex.Not_Game_Mode1) do
+        if string.match(line, v) then
+            return errorCodes.Not_Game_Mode
+        end
+    end
+    if string.match(line, regex.ScriptTypeID) then
+        return errorCodes.ScriptTypeID
+    end
+    if string.match(line, regex.World_Dependent) then
+        return errorCodes.World_Dependent
+    end
+    if string.match(line, regex.Wrong_Argument) then
+        return errorCodes.Wrong_Arg_Amount
+    end
+    sm.log.error("CentralAPI:translateError() " .. line)
+    return errorCodes.unknown
+end
+
+local function testFunction(func, arguments)
+    arguments = arguments or {}
+    local success, returnedValue = pcall(function()
+        return func(unpack(arguments))
+    end)
+    if not success then
+        return {success = false, error = returnedValue, code = getErrorCode(returnedValue)}
+    else
+        return {success = true, value = returnedValue, code = errorCodes.none}
+    end
+end
+
+local function getArguments(func, count)
+    local args = {}
+    for i = 1, count do
+        local argumentName = argumentNames[math.random(1, #argumentNames)]
+        table.insert(args, arguments[argumentName]())
+    end
+    local funcTable = testFunction(func, args)
+    if not funcTable.error then return end
+    if not string.match(funcTable.error, regex.Wrong_Argument) then return end
+    for i = 1, count do
+        local varIndex, varName, _ = string.match(funcTable.error, regex.Wrong_Argument)
+        varName = varName:lower()
+        args[tonumber(varIndex)] = arguments[varName]()
+        funcTable = testFunction(func, args)
+        if funcTable.success or funcTable.code ~= errorCodes.Wrong_Arg_Amount then break end
+    end
+    return args
+end
+
+function serializeTable( tbl )
+    if type(tbl) ~= "table" then return tbl end
+    local result = {}
+    for k, v in pairs(tbl) do
+        if type(v) == "table" then
+            result[k] = serializeTable(v)
+        else
+            result[k] = serializeValue(v)
+        end
+    end
+    return result
+end
+
+function serializeValue( value )
+    local result = {type = type(value), value = tostring(value)}
+    if type(value) == "table" then
+        result.value = serializeTable(value)
+    elseif type(value) == "Vec3" then
+        result.value = { x = value.x, y = value.y, z = value.z }
+    elseif type(value) == "Quat" then
+        result.value = { x = value.x, y = value.y, z = value.z, w = value.w }
+    elseif type(value) == "Color" then
+        result.value = { r = value.r, g = value.g, b = value.b, a = value.a }
+    elseif type(value) == "Shape" then
+        result.value = "ShapeUUID: "..tostring(value.uuid)
+    elseif type(value) == "Body" then
+        result.value = "BodyID: "..value.id
+    elseif type(value) == "Unit" then
+        result.value = "userdata"
+    elseif type(value) == "Character" then
+        result.value = "CharacterID: "..value.id
+    elseif type(value) == "World" then
+        result.value = "WorldID: "..value.id
+    elseif type(value) == "GuiInterface" then
+        result.value = "userdata"
+    elseif type(value) == "Interactable" then
+        result.value = "InteractableID: "..value.id
+    elseif type(value) == "Joint" then
+        result.value = "JointID: "..value.id
+    elseif type(value) == "Lift" then
+        result.value = "LiftID: "..value.id
+    elseif type(value) == "Player" then
+        result.value = "Name: "..value.name
+    elseif type(value) == "Container" then
+        result.value = "ContainerID: "..value.id
+    elseif type(value) == "Tool" then
+        result.value = "ToolID: "..value.id
+    elseif type(value) == "BuilderGuide" then
+        result.value = "BuilderGuideID: "..value.id
+    elseif type(value) == "AreaTrigger" then
+        result.value = "AreaTriggerID: "..value.id
+    elseif type(value) == "Harvestable" then
+        result.value = "HarvestableID: "..value.id
+    elseif type(value) == "Effect" then
+        result.value = "EffectID: "..value.id
+    elseif type(value) == "CullSphereGroup" then
+        result.value = "CullSphereGroupID: "..value.id
+    elseif type(value) == "Portal" then
+        result.value = "userdata"
+    elseif type(value) == "nil" then
+        result = "no value"
+    end
+    return result
+end
+
+local function serialize(value)
+    if type(value) == "table" then
+        return serializeTable(value)
+    end
+    return serializeValue(value)
+end
+
+local function checkEmpty(tbl)
+    if not tbl then return true end
+    local result = {}
+    for k, v in pairs(tbl) do
+        table.insert(result, k)
+    end
+    return #result == 0
+end
+
+local function serializeFunction( func )
+    local funcTable = testFunction(func)
+    if not funcTable.error and funcTable.code ~= errorCodes.Wrong_Arg_Amount then return {
+        type = "function",
+        value = serializeValue(funcTable.value),
+        args = serializeTable(funcTable.args)
+    } end
+    local translate = translateError(funcTable.error)
+    if not translate.expected then return {
+        type = "function",
+        value = serializeValue(funcTable.value),
+        args = serializeTable(funcTable.args)
+    } end
+    local args = getArguments(func, translate.expected)
+    funcTable = testFunction(func, args)
+    if checkEmpty(args) then args = "No Arguments" end
+    return {
+        type = "function",
+        value = serialize(funcTable.value),
+        args = serializeTable(args)
+    }
+end
+
+local function deepSerialize(tbl, path, allPathes, root)
+    if type(tbl) ~= "table" then return tbl end
+
+    path = path or ""
+    allPathes = allPathes or {}
+
+    local result = {}
+
+    for k, v in pairs(tbl) do
+        local currentPath = path and (path .. "." .. tostring(k)) or tostring(k)
+        table.insert(allPathes, currentPath)
+
+        if type(v) == "table" then
+            result[currentPath] = deepSerialize(v, currentPath, allPathes)
+
+        elseif type(v) == "function" then
+            result[currentPath] = serializeFunction(v)
+        else
+            result[currentPath] = v
+        end
+    end
+
+    if not root then return result end
+
+    table.sort(result, function(a, b)
+        return a:lower() < b:lower()
+    end)
+    result.allPathes = allPathes
+
+    return result
+end
+
+
+local function serializeTable( tblName, tbl )
+    return deepSerialize( tbl, tblName , _, true )
+end
+
+local tableName = ".sm"
+local checkedTable = sm
+
+--------------------------------------------------------------------------------
+--================================== Server ==================================--
+--------------------------------------------------------------------------------
+
+function tableExtractor:sv_onTECreate(_, remote)
+    if self:sv_detectClientCheat({ remote = remote, funcName = "server_onTECreate" }) then return end
+    sm.log.info("tableExtractor:server_onTECreate()")
+    self.sv.teData = {}
+    self.sv.teData.is_done = false
+end
+
+function tableExtractor:sv_onTERefresh(_, remote)
+    if self:sv_detectClientCheat({ remote = remote, funcName = "server_onTERefresh" }) then return end
+    sm.log.info("tableExtractor:server_onTERefresh()")
+    self.sv.teData = {}
+    self.sv.teData.is_done = false
+    self.sv.teData.cl_done = false
+    self.sv.teData.cl_tables = {}
+
+    self.sv.teData.sv_tables = serializeTable("SERVER_ENVIREMENT"..tableName, checkedTable)
+    self.sv.teData.is_done = true
+    self.network:sendToClient(self.sv.hostPlayer, "cl_onTERequestData", { tableName = tableName, table = checkedTable })
+end
+
+function tableExtractor:sv_onTEFixedUpdate(dt, remote)
+    if self:sv_detectClientCheat({ remote = remote, funcName = "server_onTEFixedUpdate" }) then return end
+
+    if not BLOCK or not sm.exists(BLOCK) then
+        BLOCK = sm.shape.createBlock( uuids.block, sm.vec3.new(1, 1, 1), sm.vec3.new(-1000,1000,1000), sm.quat.new(0, 0, 0, 1), false, true )
+    end
+    if not INTERACTABLE or not sm.exists(INTERACTABLE) then
+        INTERACTABLE = sm.shape.createPart( uuids.interactable, sm.vec3.new(-1000,1000,1000), sm.quat.new(0, 0, 0, 1), false, true ).interactable
+    end
+    if not CONTAINER or not sm.exists(CONTAINER) then
+        local container = INTERACTABLE:getContainer( 0 )
+        CONTAINER = container or INTERACTABLE:addContainer( 0, 1, 1 )
+    end
+    if not JOINT or not sm.exists(JOINT) then
+        JOINT = BLOCK:createJoint( uuids.joint, sm.vec3.new(0, 0, 0), sm.vec3.new(0, 0, 0) )
+    end
+    if not AREATRIGGER or not sm.exists(AREATRIGGER) then
+        AREATRIGGER = sm.areaTrigger.createBox( sm.vec3.new(1,1,1), sm.vec3.new(-1000,-1000,-1000), sm.quat.new(0,0,0,1) )
+    end
+    if not UNIT or not sm.exists(UNIT) then
+        UNIT = sm.unit.createUnit( uuids.unit, sm.vec3.new(-1000,-1000,-1000) )
+    end
+    if not WORLD or not sm.exists(WORLD) then
+        WORLD = sm.world.getCurrentWorld()
+    end
+    if not TOOL or not sm.exists(TOOL) then
+        local inventory = self.sv.hostPlayer:getHotbar()
+        sm.container.beginTransaction()
+        local isItem = inventory:setItem( inventory:getSize(), uuids.tool, 1 )
+        if isItem then
+            TOOL = inventory:getItem( inventory:getSize() )
+        end
+        sm.container.endTransaction()
+    end
+    if not PLAYER or not sm.exists(PLAYER) then
+        PLAYER = self.sv.hostPlayer
+    end
+    if not PORTAL or not sm.exists(PORTAL) then
+        PORTAL = sm.portal.createPortal( sm.vec3.new(-1000,-1000,-1000) )
+    end
+    --if not PISTON or not sm.exists(PISTON) then
+    --    PISTON = BLOCK:createJoint( uuids.piston, sm.vec3.new(0,0,1), sm.vec3.new(0,0,0) )
+    --end
+
+    print(self.sv.teData.is_done, self.sv.teData.cl_done)
+    if not self.sv.teData.is_done and not self.sv.teData.cl_done then return end
+    self.sv.teData.is_done = false
+    self.sv.teData.cl_done = false
+    
+    local sv_table = self.sv.teData.sv_tables
+    local cl_table = self.sv.teData.cl_tables
+
+    local combined = {}
+
+    combined["SERVER_ENVIREMENT"] = sv_table
+    combined["CLIENT_ENVIREMENT"] = cl_table
+
+    sm.json.save( combined, "$CONTENT_DATA/Scripts/tableExtractor.json" )
+end
+
+function tableExtractor:sv_onTEClientData(data, remote)
+    if self:sv_detectClientCheat({ remote = remote, funcName = "server_onTEClientFinish" }) then return end
+    if not data then return end
+    if not data.index then return end
+    if data.index == "END" then
+        self.sv.teData.cl_done = true
+        return
+    end
+    self.sv.teData.cl_tables[data.index] = data.data
+end
+
+function tableExtractor:sv_onTEOnReceiveTool(args, remote)
+    if self:sv_detectClientCheat({ remote = remote, funcName = "server_onTEOnReceiveTool" }) then return end
+
+end
+
+--------------------------------------------------------------------------------
+--================================== Client ==================================--
+--------------------------------------------------------------------------------
+
+function tableExtractor:cl_onTERequestData(args)
+    sm.log.info("tableExtractor:cl_onTERefresh()")
+    if not args then return end
+    if not args.tableName then return end
+    if not args.table then return end
+    local tables = serializeTable("CLIENT_ENVIREMENT"..tableName, checkedTable)
+    for k, v in pairs(tables) do
+        self.network:sendToServer("sv_onTEClientData", { index = k, data = v })
+    end
+    self.network:sendToServer("sv_onTEClientData", { index = "END", data = nil })
+end

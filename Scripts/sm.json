@@ -1,0 +1,4282 @@
+
+{
+	"ai" : 
+	{
+		"directPathAvailable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.ai.directPathAvailable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getAimPosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 4 arguments (got 0)",
+			"path" : "sm.ai.getAimPosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getBreachablePosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 4 arguments (got 0)",
+			"path" : "sm.ai.getBreachablePosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getClosestTree" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.ai.getClosestTree",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getClosestVisibleCharacterType" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.ai.getClosestVisibleCharacterType",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getClosestVisibleCrop" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.ai.getClosestVisibleCrop",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getClosestVisiblePlayerCharacter" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.ai.getClosestVisiblePlayerCharacter",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getClosestVisibleTeamOpponent" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.ai.getClosestVisibleTeamOpponent",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getRandomCreationPosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.ai.getRandomCreationPosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isReachable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.ai.isReachable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"areaTrigger" : 
+	{
+		"createAttachedBox" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.areaTrigger.createAttachedBox",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createAttachedSphere" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.areaTrigger.createAttachedSphere",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createBox" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.areaTrigger.createBox",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createBoxWater" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.areaTrigger.createBoxWater",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createSphere" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.areaTrigger.createSphere",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"destroy" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.areaTrigger.destroy",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"filter" : 
+		{
+			"all" : 34319.0,
+			"areaTrigger" : 8.0,
+			"character" : 4.0,
+			"dynamicBody" : 1.0,
+			"harvestable" : 512.0,
+			"lift" : 1024.0,
+			"staticBody" : 2.0,
+			"voxelTerrain" : 32768.0
+		}
+	},
+	"audio" : 
+	{
+		"play" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.audio.play",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"soundList" : 
+		[
+			"Ambient - Birds",
+			"Ambient - Challenge",
+			"Ambient - Field",
+			"Blueprint - Build",
+			"Blueprint - Camera",
+			"Blueprint - Close",
+			"Blueprint - Delete",
+			"Blueprint - Open",
+			"Blueprint - Save",
+			"Blueprint - Select",
+			"Blueprint - Share",
+			"Brake",
+			"Button off",
+			"Button on",
+			"Challenge - Fall",
+			"Challenge - Start",
+			"Challenge - Supervisor generic",
+			"Character crouch",
+			"Character get up",
+			"Character hit",
+			"Character jump",
+			"Character land",
+			"Character movement",
+			"Character movement crouched",
+			"Character wind",
+			"Collision - Debris",
+			"Collision - Multiple",
+			"Collision - Rolling",
+			"Collision - Single",
+			"Collision - Sliding",
+			"Collision - Vehicle",
+			"ConnectTool",
+			"ConnectTool - Equip",
+			"ConnectTool - Idle",
+			"ConnectTool - Released",
+			"ConnectTool - Rotate",
+			"ConnectTool - Selected",
+			"ConnectTool - Unequip",
+			"Construction - Block attached to joint",
+			"Construction - Block placed",
+			"Construction - Resize",
+			"Dancebass",
+			"Dancedrum",
+			"Dancepad",
+			"Dancevoice",
+			"Destruction - Block destroyed",
+			"Destruction - Resize",
+			"ElectricEngine",
+			"GUI Backpack closed",
+			"GUI Backpack opened",
+			"GUI Inventory highlight",
+			"GUI Item drag",
+			"GUI Item released",
+			"GUI Quickbar highlight",
+			"GUI Shape rotate",
+			"Gas Explosion",
+			"Gas Leak",
+			"GasEngine",
+			"Handbook - Close",
+			"Handbook - Equip",
+			"Handbook - Highlight",
+			"Handbook - Open",
+			"Handbook - Turn page",
+			"Handbook - Unequip",
+			"Horn",
+			"Lever off",
+			"Lever on",
+			"Lift - Pickup object",
+			"Lift placed",
+			"Lift usage",
+			"Music",
+			"PaintTool - Close",
+			"PaintTool - ColorPick",
+			"PaintTool - Equip",
+			"PaintTool - Erase",
+			"PaintTool - Open",
+			"PaintTool - Paint",
+			"PaintTool - Reload",
+			"PaintTool - Unequip",
+			"Phaser",
+			"Piston",
+			"PotatoRifle - Equip",
+			"PotatoRifle - NoAmmo",
+			"PotatoRifle - Reload",
+			"PotatoRifle - Shoot",
+			"PotatoRifle - Unequip",
+			"Radio",
+			"RaftShark",
+			"Retrobass",
+			"Retrodrum",
+			"Retrofmblip",
+			"Retrovoice",
+			"Retrowildblip",
+			"Reverb - Challenge",
+			"Reverb - Field",
+			"Seat seated",
+			"Seat unseated",
+			"Sensor off",
+			"Sensor on",
+			"SequenceController",
+			"SequenceController change rotation",
+			"Sledgehammer - Equip",
+			"Sledgehammer - Swing",
+			"Sledgehammer - Unequip",
+			"Suspension",
+			"Thruster",
+			"Thruster dust",
+			"Toilet seated",
+			"Toilet unseated",
+			"Weapon - Hit",
+			"WeldTool - Case 1",
+			"WeldTool - Case 2",
+			"WeldTool - Equip",
+			"WeldTool - Error",
+			"WeldTool - Sparks",
+			"WeldTool - Unequip",
+			"WeldTool - Weld"
+		]
+	},
+	"body" : 
+	{
+		"createBody" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 1 arguments (got 0)",
+			"path" : "sm.body.createBody",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getAllBodies" : 
+		{
+			"path" : "sm.body.getAllBodies",
+			"returnedValue" : "Empty Table",
+			"type" : "function"
+		},
+		"getAngularVelocity" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.getAngularVelocity",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getCenterOfMassPosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.getCenterOfMassPosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getCreationBodies" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.getCreationBodies",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getCreationId" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.getCreationId",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getCreationShapes" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.getCreationShapes",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getCreationsFromBodies" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.getCreationsFromBodies",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getId" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.getId",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getMass" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.getMass",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getShapes" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.getShapes",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getVelocity" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.getVelocity",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getWorldPosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.getWorldPosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getWorldRotation" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.getWorldRotation",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"hasChanged" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.body.hasChanged",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isBuildable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.isBuildable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isConnectable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.isConnectable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isConvertibleToDynamic" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.isConvertibleToDynamic",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isDestructable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.isDestructable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isDynamic" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.isDynamic",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isErasable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.isErasable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isLiftable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.isLiftable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isOnLift" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.isOnLift",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isPaintable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.isPaintable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isStatic" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.isStatic",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isUsable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.body.isUsable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setBuildable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.body.setBuildable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setConnectable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.body.setConnectable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setConvertibleToDynamic" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.body.setConvertibleToDynamic",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setDestructable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.body.setDestructable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setErasable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.body.setErasable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setLiftable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.body.setLiftable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setPaintable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.body.setPaintable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setUsable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.body.setUsable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"builderGuide" : 
+	{
+		"createBuilderGuide" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.builderGuide.createBuilderGuide",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"destroy" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.builderGuide.destroy",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"camera" : 
+	{
+		"cameraSphereCast" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.cameraSphereCast",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getCameraPullback" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.getCameraPullback",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getCameraState" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.getCameraState",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getDefaultFov" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.getDefaultFov",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getDefaultPosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.getDefaultPosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getDefaultRotation" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.getDefaultRotation",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getDirection" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.getDirection",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getFov" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.getFov",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getPosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.getPosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getRight" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.getRight",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getRotation" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.getRotation",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getUp" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.getUp",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setCameraPullback" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.setCameraPullback",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setCameraState" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.setCameraState",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setDirection" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.setDirection",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setFov" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.setFov",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setPosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.setPosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setRotation" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.setRotation",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setShake" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.camera.setShake",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"state" : 
+		{
+			"cutsceneFP" : 2.0,
+			"cutsceneTP" : 3.0,
+			"default" : 1.0,
+			"forcedTP" : 4.0,
+			"gyroSeatFP" : 5.0,
+			"gyroSeatTP" : 6.0
+		}
+	},
+	"cell" : 
+	{
+		"getHarvestables" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.cell.getHarvestables",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getInteractablesByAnyUuid" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.cell.getInteractablesByAnyUuid",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getInteractablesByTag" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.cell.getInteractablesByTag",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getInteractablesByTags" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.cell.getInteractablesByTags",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getInteractablesByUuid" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.cell.getInteractablesByUuid",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getNodesByTag" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.cell.getNodesByTag",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getNodesByTags" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.cell.getNodesByTags",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getTags" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.cell.getTags",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"challenge" : 
+	{
+		"getCompletionTime" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.challenge.getCompletionTime",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getSaveData" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.challenge.getSaveData",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"hasStarted" : 
+		{
+			"path" : "sm.challenge.hasStarted",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isMasterMechanicTrial" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.challenge.isMasterMechanicTrial",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"levelCompleted" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.challenge.levelCompleted",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"resolveContentPath" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.challenge.resolveContentPath",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"start" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.challenge.start",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"stop" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.challenge.stop",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"takePicture" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Not available this game mode",
+			"path" : "sm.challenge.takePicture",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"takePicturesForMenu" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Not available this game mode",
+			"path" : "sm.challenge.takePicturesForMenu",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"character" : 
+	{
+		"createCharacter" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 3 arguments (got 0)",
+			"path" : "sm.character.createCharacter",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"preloadRenderables" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.character.preloadRenderables",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"color" : 
+	{
+		"getA" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.color.getA",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getB" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.color.getB",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getG" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.color.getG",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getR" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.color.getR",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"new" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 1 arguments (got 0)",
+			"path" : "sm.color.new",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setA" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.color.setA",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setB" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.color.setB",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setG" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.color.setG",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setR" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.color.setR",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"construction" : 
+	{
+		"buildBlock" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.construction.buildBlock",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"constants" : 
+		{
+			"shapeSpacing" : 0.004000000189989805,
+			"subdivideRatio" : 0.250,
+			"subdivideRatio_2" : 0.1250,
+			"subdivisions" : 4.0
+		},
+		"validateLocalPosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 3 arguments (got 0)",
+			"path" : "sm.construction.validateLocalPosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"container" : 
+	{
+		"abortTransaction" : 
+		{
+			"path" : "sm.container.abortTransaction",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"beginTransaction" : 
+		{
+			"path" : "sm.container.beginTransaction",
+			"returnedValue" : true,
+			"type" : "function"
+		},
+		"canCollect" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.container.canCollect",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"canSpend" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.container.canSpend",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"collect" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 3 arguments (got 0)",
+			"path" : "sm.container.collect",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"collectToSlot" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 4 arguments (got 0)",
+			"path" : "sm.container.collectToSlot",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"endTransaction" : 
+		{
+			"path" : "sm.container.endTransaction",
+			"returnedValue" : true,
+			"type" : "function"
+		},
+		"getFirstItem" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.container.getFirstItem",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getId" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.container.getId",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getItem" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.container.getItem",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getMaxStackSize" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.container.getMaxStackSize",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getSize" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.container.getSize",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"hasChanged" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.container.hasChanged",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isEmpty" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.container.isEmpty",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"itemUuid" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.container.itemUuid",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"moveAll" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.container.moveAll",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"moveAllToCarryContainer" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.container.moveAllToCarryContainer",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"quantity" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.container.quantity",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setFilters" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.container.setFilters",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setItem" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 4 arguments (got 0)",
+			"path" : "sm.container.setItem",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"spend" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 3 arguments (got 0)",
+			"path" : "sm.container.spend",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"spendFromSlot" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 4 arguments (got 0)",
+			"path" : "sm.container.spendFromSlot",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"swap" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 4 arguments (got 0)",
+			"path" : "sm.container.swap",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"totalQuantity" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.container.totalQuantity",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"creation" : 
+	{
+		"exportToString" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 1 arguments (got 0)",
+			"path" : "sm.creation.exportToString",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"exportToTable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 1 arguments (got 0)",
+			"path" : "sm.creation.exportToTable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"importFromFile" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.creation.importFromFile",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"importFromString" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.creation.importFromString",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"cullSphereGroup" : 
+	{
+		"newCullSphereGroup" : 
+		{
+			"path" : "sm.cullSphereGroup.newCullSphereGroup",
+			"type" : "function"
+		}
+	},
+	"debris" : 
+	{
+		"createDebris" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.debris.createDebris",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"debugDraw" : 
+	{
+		"addArrow" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.debugDraw.addArrow",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"addSphere" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.debugDraw.addSphere",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"addTransform" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 3 arguments (got 0)",
+			"path" : "sm.debugDraw.addTransform",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"clear" : 
+		{
+			"path" : "sm.debugDraw.clear",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"removeArrow" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.debugDraw.removeArrow",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"removeSphere" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.debugDraw.removeSphere",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"removeTransform" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.debugDraw.removeTransform",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"effect" : 
+	{
+		"createEffect" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.effect.createEffect",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createEffect2D" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.effect.createEffect2D",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"estimateSize" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.effect.estimateSize",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"playEffect" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.effect.playEffect",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"playHostedEffect" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.effect.playHostedEffect",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"event" : 
+	{
+		"sendToCharacter" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.event.sendToCharacter",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"sendToGame" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 1 arguments (got 0)",
+			"path" : "sm.event.sendToGame",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"sendToHarvestable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.event.sendToHarvestable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"sendToInteractable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.event.sendToInteractable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"sendToPlayer" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.event.sendToPlayer",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"sendToScriptableObject" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.event.sendToScriptableObject",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"sendToTool" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.event.sendToTool",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"sendToUnit" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.event.sendToUnit",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"sendToWorld" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.event.sendToWorld",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"exists" : 
+	{
+		"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+		"path" : "sm.exists",
+		"returnedValue" : "unknown",
+		"type" : "function"
+	},
+	"game" : 
+	{
+		"bindChatCommand" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.game.bindChatCommand",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getCurrentTick" : 
+		{
+			"path" : "sm.game.getCurrentTick",
+			"returnedValue" : 7195155.0,
+			"type" : "function"
+		},
+		"getDifficulty" : 
+		{
+			"path" : "sm.game.getDifficulty",
+			"returnedValue" : 1.0,
+			"type" : "function"
+		},
+		"getEnableAggro" : 
+		{
+			"path" : "sm.game.getEnableAggro",
+			"returnedValue" : true,
+			"type" : "function"
+		},
+		"getEnableAmmoConsumption" : 
+		{
+			"path" : "sm.game.getEnableAmmoConsumption",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getEnableFuelConsumption" : 
+		{
+			"path" : "sm.game.getEnableFuelConsumption",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getEnableRestrictions" : 
+		{
+			"path" : "sm.game.getEnableRestrictions",
+			"returnedValue" : true,
+			"type" : "function"
+		},
+		"getEnableUpgrade" : 
+		{
+			"path" : "sm.game.getEnableUpgrade",
+			"returnedValue" : true,
+			"type" : "function"
+		},
+		"getLimitedInventory" : 
+		{
+			"path" : "sm.game.getLimitedInventory",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getServerTick" : 
+		{
+			"path" : "sm.game.getServerTick",
+			"returnedValue" : 7195155.0,
+			"type" : "function"
+		},
+		"getTimeOfDay" : 
+		{
+			"path" : "sm.game.getTimeOfDay",
+			"returnedValue" : 0.50,
+			"type" : "function"
+		},
+		"setEnableAggro" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.game.setEnableAggro",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setEnableAmmoConsumption" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.game.setEnableAmmoConsumption",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setEnableFuelConsumption" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.game.setEnableFuelConsumption",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setEnableRestrictions" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.game.setEnableRestrictions",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setEnableUpgrade" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.game.setEnableUpgrade",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setLimitedInventory" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.game.setLimitedInventory",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setTimeOfDay" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.game.setTimeOfDay",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"gui" : 
+	{
+		"chatMessage" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.gui.chatMessage",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createAmmunitionContainerGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createAmmunitionContainerGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createBagIconGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createBagIconGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createBatteryContainerGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createBatteryContainerGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createBeaconIconGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createBeaconIconGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createChallengeHUDGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createChallengeHUDGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createChallengeMessageGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createChallengeMessageGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createCharacterCustomizationGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createCharacterCustomizationGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createChemicalContainerGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createChemicalContainerGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createContainerGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createContainerGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createCraftBotGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createCraftBotGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createDressBotGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createDressBotGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createEngineGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createEngineGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createFertilizerContainerGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createFertilizerContainerGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createGasContainerGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createGasContainerGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createGuiFromLayout" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createGuiFromLayout",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createHideoutGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createHideoutGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createLogbookGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createLogbookGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createMechanicStationGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createMechanicStationGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createNameTagGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createNameTagGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createQuestTrackerGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createQuestTrackerGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createSeatGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createSeatGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createSeatUpgradeGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createSeatUpgradeGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createSeedContainerGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createSeedContainerGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createSteeringBearingGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createSteeringBearingGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createSurvivalHudGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createSurvivalHudGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createWaterContainerGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createWaterContainerGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createWaypointIconGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createWaypointIconGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createWidget" : 
+		{
+			"path" : "sm.gui.createWidget",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createWorkbenchGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createWorkbenchGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createWorldIconGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.createWorldIconGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"displayAlertText" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.displayAlertText",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"endFadeToBlack" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.endFadeToBlack",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"exitToMenu" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.exitToMenu",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getCurrentLanguage" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.getCurrentLanguage",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getKeyBinding" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.getKeyBinding",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getScreenSize" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.getScreenSize",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"hideGui" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.hideGui",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setCenterIcon" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.setCenterIcon",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setCharacterDebugText" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.setCharacterDebugText",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setInteractionText" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.setInteractionText",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setProgressFraction" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.setProgressFraction",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"startFadeToBlack" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.startFadeToBlack",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"ticksToTimeString" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.ticksToTimeString",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"translateLocalizationTags" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.gui.translateLocalizationTags",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"widget" : 
+		{
+			"bindOnClick" : 
+			{
+				"path" : "sm.gui.widget.bindOnClick",
+				"returnedValue" : "unknown",
+				"type" : "function"
+			},
+			"destroy" : 
+			{
+				"path" : "sm.gui.widget.destroy",
+				"returnedValue" : "unknown",
+				"type" : "function"
+			},
+			"find" : 
+			{
+				"path" : "sm.gui.widget.find",
+				"returnedValue" : "unknown",
+				"type" : "function"
+			},
+			"getId" : 
+			{
+				"path" : "sm.gui.widget.getId",
+				"returnedValue" : "unknown",
+				"type" : "function"
+			},
+			"getName" : 
+			{
+				"path" : "sm.gui.widget.getName",
+				"returnedValue" : "unknown",
+				"type" : "function"
+			},
+			"getPosition" : 
+			{
+				"path" : "sm.gui.widget.getPosition",
+				"returnedValue" : "unknown",
+				"type" : "function"
+			},
+			"getSize" : 
+			{
+				"path" : "sm.gui.widget.getSize",
+				"returnedValue" : "unknown",
+				"type" : "function"
+			},
+			"getText" : 
+			{
+				"path" : "sm.gui.widget.getText",
+				"returnedValue" : "unknown",
+				"type" : "function"
+			},
+			"getTypeName" : 
+			{
+				"path" : "sm.gui.widget.getTypeName",
+				"returnedValue" : "unknown",
+				"type" : "function"
+			},
+			"getVisible" : 
+			{
+				"path" : "sm.gui.widget.getVisible",
+				"returnedValue" : "unknown",
+				"type" : "function"
+			},
+			"setPosition" : 
+			{
+				"path" : "sm.gui.widget.setPosition",
+				"returnedValue" : "unknown",
+				"type" : "function"
+			},
+			"setSize" : 
+			{
+				"path" : "sm.gui.widget.setSize",
+				"returnedValue" : "unknown",
+				"type" : "function"
+			},
+			"setText" : 
+			{
+				"path" : "sm.gui.widget.setText",
+				"returnedValue" : "unknown",
+				"type" : "function"
+			},
+			"setVisible" : 
+			{
+				"path" : "sm.gui.widget.setVisible",
+				"returnedValue" : "unknown",
+				"type" : "function"
+			}
+		}
+	},
+	"harvestable" : 
+	{
+		"create" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.harvestable.create",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createHarvestable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.harvestable.createHarvestable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"destroy" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.harvestable.destroy",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getClientPublicData" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.harvestable.getClientPublicData",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getColor" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.harvestable.getColor",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getId" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.harvestable.getId",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getMaterial" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.harvestable.getMaterial",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getMaterialId" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.harvestable.getMaterialId",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getName" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.harvestable.getName",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getPoseWeight" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.harvestable.getPoseWeight",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getPosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.harvestable.getPosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getPublicData" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.harvestable.getPublicData",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getRotation" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.harvestable.getRotation",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getType" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.harvestable.getType",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getUvFrameIndex" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.harvestable.getUvFrameIndex",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setClientPublicData" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.harvestable.setClientPublicData",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setColor" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.harvestable.setColor",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setParams" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.harvestable.setParams",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setPoseWeight" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.harvestable.setPoseWeight",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setPublicData" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.harvestable.setPublicData",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setUvFrameIndex" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.harvestable.setUvFrameIndex",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"interactable" : 
+	{
+		"actions" : 
+		{
+			"attack" : 18.0,
+			"backward" : 4.0,
+			"create" : 19.0,
+			"exit" : 17.0,
+			"forward" : 3.0,
+			"item0" : 5.0,
+			"item1" : 6.0,
+			"item2" : 7.0,
+			"item3" : 8.0,
+			"item4" : 9.0,
+			"item5" : 10.0,
+			"item6" : 11.0,
+			"item7" : 12.0,
+			"item8" : 13.0,
+			"item9" : 14.0,
+			"jump" : 16.0,
+			"left" : 1.0,
+			"none" : 0.0,
+			"right" : 2.0,
+			"use" : 15.0,
+			"zoomIn" : 20.0,
+			"zoomOut" : 21.0
+		},
+		"addContainer" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 3 arguments (got 0)",
+			"path" : "sm.interactable.addContainer",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"connect" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.interactable.connect",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"connectionType" : 
+		{
+			"all" : 4294967295.0,
+			"ammo" : 2048.0,
+			"bearing" : 4.0,
+			"electricity" : 512.0,
+			"gasoline" : 256.0,
+			"logic" : 1.0,
+			"none" : 0.0,
+			"piston" : 16.0,
+			"power" : 2.0,
+			"seated" : 8.0,
+			"water" : 1024.0
+		},
+		"disconnect" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.interactable.disconnect",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getAnimDuration" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.interactable.getAnimDuration",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getBearings" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.interactable.getBearings",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getBody" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.interactable.getBody",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getChildren" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 1 arguments (got 0)",
+			"path" : "sm.interactable.getChildren",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getColorHighlight" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.interactable.getColorHighlight",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getColorNormal" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.interactable.getColorNormal",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getConnectionInputType" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.interactable.getConnectionInputType",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getConnectionOutputType" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.interactable.getConnectionOutputType",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getContainer" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 1 arguments (got 0)",
+			"path" : "sm.interactable.getContainer",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getGlowMultiplier" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.interactable.getGlowMultiplier",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getId" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.interactable.getId",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getJoints" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.interactable.getJoints",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getLocalBonePosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.interactable.getLocalBonePosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getMaxChildCount" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.interactable.getMaxChildCount",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getMaxParentCount" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.interactable.getMaxParentCount",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getParents" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 1 arguments (got 0)",
+			"path" : "sm.interactable.getParents",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getPistons" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.interactable.getPistons",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getPoseWeight" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.interactable.getPoseWeight",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getPower" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.interactable.getPower",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getPublicData" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.interactable.getPublicData",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getShape" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.interactable.getShape",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getSingleParent" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.interactable.getSingleParent",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getType" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.interactable.getType",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getUvFrameIndex" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.interactable.getUvFrameIndex",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getWorldBonePosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.interactable.getWorldBonePosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"hasAnim" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.interactable.hasAnim",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isActive" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.interactable.isActive",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"removeContainer" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.interactable.removeContainer",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setActive" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.interactable.setActive",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setAnimEnabled" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.interactable.setAnimEnabled",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setAnimProgress" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.interactable.setAnimProgress",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setGlowMultiplier" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.interactable.setGlowMultiplier",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setParams" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.interactable.setParams",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setPoseWeight" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.interactable.setPoseWeight",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setPower" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.interactable.setPower",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setPublicData" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.interactable.setPublicData",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setUvFrameIndex" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.interactable.setUvFrameIndex",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"steering" : 
+		{
+			"backward" : 8.0,
+			"forward" : 4.0,
+			"left" : 1.0,
+			"right" : 2.0
+		},
+		"types" : 
+		[
+			"electricEngine",
+			"gasEngine",
+			"steering",
+			"seat",
+			"controller",
+			"button",
+			"lever",
+			"sensor",
+			"thruster",
+			"radio",
+			"horn",
+			"tone",
+			"logic",
+			"timer",
+			"particlePreview",
+			"spring",
+			"pointLight",
+			"spotLight",
+			"chest",
+			"itemStack",
+			"scripted",
+			"piston",
+			"simpleInteractive",
+			"camera",
+			"waypoint",
+			"survivalThruster",
+			"survivalPiston",
+			"survivalSpring",
+			"survivalSequence",
+			"survivalSensor"
+		]
+	},
+	"isHost" : true,
+	"isServerMode" : 
+	{
+		"path" : "sm.isServerMode",
+		"returnedValue" : true,
+		"type" : "function"
+	},
+	"item" : 
+	{
+		"getCharacterShape" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.item.getCharacterShape",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getEdible" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.item.getEdible",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getFeatureData" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.item.getFeatureData",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getInteractablesUuidsOfType" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.item.getInteractablesUuidsOfType",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getPlantable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.item.getPlantable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getPlantableUuids" : 
+		{
+			"path" : "sm.item.getPlantableUuids",
+			"returnedValue" : "Empty Table",
+			"type" : "function"
+		},
+		"getQualityLevel" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.item.getQualityLevel",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getShapeDefaultColor" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.item.getShapeDefaultColor",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getShapeOffset" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.item.getShapeOffset",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getShapeSize" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.item.getShapeSize",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isBlock" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.item.isBlock",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isBlueprintShape" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.item.isBlueprintShape",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isHarvestablePart" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.item.isHarvestablePart",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isJoint" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.item.isJoint",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isPart" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.item.isPart",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isTool" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.item.isTool",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"joint" : 
+	{
+		"createBlock" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 4 arguments (got 0)",
+			"path" : "sm.joint.createBlock",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createPart" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 5 arguments (got 0)",
+			"path" : "sm.joint.createPart",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getAngle" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getAngle",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getAngularVelocity" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getAngularVelocity",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getAppliedImpulse" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getAppliedImpulse",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getBoundingBox" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getBoundingBox",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getColor" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getColor",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getId" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getId",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getLength" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getLength",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getLocalPosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getLocalPosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getLocalRotation" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getLocalRotation",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getShapeA" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getShapeA",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getShapeB" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getShapeB",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getShapeUuid" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getShapeUuid",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getSticky" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getSticky",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getType" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getType",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getWorldPosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getWorldPosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getWorldRotation" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getWorldRotation",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getXAxis" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getXAxis",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getYAxis" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getYAxis",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getZAxis" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.getZAxis",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isReversed" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.joint.isReversed",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setColor" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.joint.setColor",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setMotorVelocity" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.joint.setMotorVelocity",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setTargetAngle" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 4 arguments (got 0)",
+			"path" : "sm.joint.setTargetAngle",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setTargetLength" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 3 arguments (got 0)",
+			"path" : "sm.joint.setTargetLength",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"types" : [ "bearing", "piston" ]
+	},
+	"json" : 
+	{
+		"fileExists" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.json.fileExists",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"open" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.json.open",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"parseJsonString" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.json.parseJsonString",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"save" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.json.save",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"writeJsonString" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.json.writeJsonString",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"localPlayer" : 
+	{
+		"addRenderable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.addRenderable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getActiveItem" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getActiveItem",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getAimSensitivity" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getAimSensitivity",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getCarry" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getCarry",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getCarryColor" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getCarryColor",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getDirection" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getDirection",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getFpAnimationInfo" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getFpAnimationInfo",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getFpBonePos" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getFpBonePos",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getHotbar" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getHotbar",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getId" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getId",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getInventory" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getInventory",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getMouseDelta" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getMouseDelta",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getOwnedLift" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getOwnedLift",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getPlayer" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getPlayer",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getPosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getPosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getRaycast" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getRaycast",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getRaycastStart" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getRaycastStart",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getRight" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getRight",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getSelectedHotbarSlot" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getSelectedHotbarSlot",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getUp" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.getUp",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isGarmentUnlocked" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.isGarmentUnlocked",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isInFirstPersonView" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.isInFirstPersonView",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"removeRenderable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.removeRenderable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setBlockSprinting" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.setBlockSprinting",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setDirection" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.setDirection",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setLockedControls" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.setLockedControls",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"updateFpAnimation" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.localPlayer.updateFpAnimation",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"log" : 
+	{
+		"error" : 
+		{
+			"path" : "sm.log.error",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"info" : 
+		{
+			"path" : "sm.log.info",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"warning" : 
+		{
+			"path" : "sm.log.warning",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"melee" : 
+	{
+		"meleeAttack" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 5 arguments (got 0)",
+			"path" : "sm.melee.meleeAttack",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"menuCreation" : 
+	{
+		"load" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Not available in this game mode",
+			"path" : "sm.menuCreation.load",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"save" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Not available in this game mode",
+			"path" : "sm.menuCreation.save",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"noise" : 
+	{
+		"floatNoise2d" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.noise.floatNoise2d",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"gunSpread" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.noise.gunSpread",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"intNoise2d" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.noise.intNoise2d",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"octaveNoise2d" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 4 arguments (got 0)",
+			"path" : "sm.noise.octaveNoise2d",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"perlinNoise2d" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.noise.perlinNoise2d",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"randomNormalDistribution" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.noise.randomNormalDistribution",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"randomRange" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.noise.randomRange",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"simplexNoise1d" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.noise.simplexNoise1d",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"simplexNoise2d" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.noise.simplexNoise2d",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"particle" : 
+	{
+		"createParticle" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.particle.createParticle",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"pathNode" : 
+	{
+		"createPathNode" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.pathNode.createPathNode",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"pathfinder" : 
+	{
+		"conditionProperty" : 
+		{
+			"height" : 0.0,
+			"none" : 2.0,
+			"target" : 1.0
+		},
+		"getPath" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.pathfinder.getPath",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getSortedNodes" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.pathfinder.getSortedNodes",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"physics" : 
+	{
+		"applyImpulse" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.physics.applyImpulse",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"applyTorque" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.physics.applyTorque",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"distanceRaycast" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.physics.distanceRaycast",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"explode" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 5 arguments (got 0)",
+			"path" : "sm.physics.explode",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"filter" : 
+		{
+			"all" : -1.0,
+			"areaTrigger" : 8.0,
+			"character" : 4.0,
+			"default" : 38791.0,
+			"dynamicBody" : 1.0,
+			"harvestable" : 512.0,
+			"joints" : 4096.0,
+			"static" : 34690.0,
+			"staticBody" : 2.0,
+			"terrainAsset" : 256.0,
+			"terrainSurface" : 128.0,
+			"voxelTerrain" : 32768.0
+		},
+		"getGravity" : 
+		{
+			"path" : "sm.physics.getGravity",
+			"returnedValue" : 10.0,
+			"type" : "function"
+		},
+		"getGroundMaterial" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.physics.getGroundMaterial",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getSphereContacts" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.physics.getSphereContacts",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"multicast" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.physics.multicast",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"raycast" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.physics.raycast",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"raycastTarget" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.physics.raycastTarget",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setGravity" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.physics.setGravity",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"sphereContactCount" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.physics.sphereContactCount",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"spherecast" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 3 arguments (got 0)",
+			"path" : "sm.physics.spherecast",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"types" : 
+		[
+			"limiter",
+			"terrainSurface",
+			"terrainAsset",
+			"body",
+			"joint",
+			"lift",
+			"character",
+			"joint",
+			"harvestable",
+			"ragdoll",
+			"areaTrigger",
+			"vision",
+			"voxelTerrain",
+			"tunnelCatcher"
+		]
+	},
+	"player" : 
+	{
+		"getAllPlayers" : 
+		{
+			"path" : "sm.player.getAllPlayers",
+			"returnedValue" : "Empty Table",
+			"type" : "function"
+		},
+		"placeLift" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 5 arguments (got 0)",
+			"path" : "sm.player.placeLift",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"removeLift" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.player.removeLift",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"portal" : 
+	{
+		"addWorldPortalHook" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.portal.addWorldPortalHook",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createPortal" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.portal.createPortal",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"destroy" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.portal.destroy",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"popWorldPortalHook" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.portal.popWorldPortalHook",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"projectile" : 
+	{
+		"customProjectileAttack" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 6 arguments (got 0)",
+			"path" : "sm.projectile.customProjectileAttack",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getProjectileMass" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.projectile.getProjectileMass",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"harvestableCustomProjectileAttack" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 6 arguments (got 0)",
+			"path" : "sm.projectile.harvestableCustomProjectileAttack",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"harvestableProjectileAttack" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 5 arguments (got 0)",
+			"path" : "sm.projectile.harvestableProjectileAttack",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"playerFire" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.projectile.playerFire",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"projectileAttack" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 5 arguments (got 0)",
+			"path" : "sm.projectile.projectileAttack",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"shapeCustomProjectileAttack" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 6 arguments (got 0)",
+			"path" : "sm.projectile.shapeCustomProjectileAttack",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"shapeFire" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 4 arguments (got 0)",
+			"path" : "sm.projectile.shapeFire",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"shapeProjectileAttack" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 5 arguments (got 0)",
+			"path" : "sm.projectile.shapeProjectileAttack",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"solveBallisticArc" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 4 arguments (got 0)",
+			"path" : "sm.projectile.solveBallisticArc",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"quat" : 
+	{
+		"angleAxis" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.quat.angleAxis",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"fromEuler" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.quat.fromEuler",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getAt" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.quat.getAt",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getRight" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.quat.getRight",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getUp" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.quat.getUp",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getW" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.quat.getW",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getX" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.quat.getX",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getY" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.quat.getY",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getZ" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.quat.getZ",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"identity" : 
+		{
+			"path" : "sm.quat.identity",
+			"type" : "function"
+		},
+		"inverse" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.quat.inverse",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"lookRotation" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.quat.lookRotation",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"new" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 4 arguments (got 0)",
+			"path" : "sm.quat.new",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"round90" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.quat.round90",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setW" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.quat.setW",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setX" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.quat.setX",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setY" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.quat.setY",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setZ" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.quat.setZ",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"slerp" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.quat.slerp",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"render" : 
+	{
+		"getDrawDistance" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.render.getDrawDistance",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getOutdoorLighting" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.render.getOutdoorLighting",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getScreenCoordinatesFromWorldPosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.render.getScreenCoordinatesFromWorldPosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"isOutdoor" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.render.isOutdoor",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setOutdoorLighting" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.render.setOutdoorLighting",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"scriptableObject" : 
+	{
+		"createScriptableObject" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 1 arguments (got 0)",
+			"path" : "sm.scriptableObject.createScriptableObject",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"shape" : 
+	{
+		"createBlock" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 3 arguments (got 0)",
+			"path" : "sm.shape.createBlock",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createJoint" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 4 arguments (got 0)",
+			"path" : "sm.shape.createJoint",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createPart" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.shape.createPart",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createWedge" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 3 arguments (got 0)",
+			"path" : "sm.shape.createWedge",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"destroyPart" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 1 arguments (got 0)",
+			"path" : "sm.shape.destroyPart",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"destroyShape" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 1 arguments (got 0)",
+			"path" : "sm.shape.destroyShape",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getAt" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getAt",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getBody" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getBody",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getBoundingBox" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getBoundingBox",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getBuoyancy" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getBuoyancy",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getColor" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getColor",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getId" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getId",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getInteractable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getInteractable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getIsHarvest" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getIsHarvest",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getIsStackable" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getIsStackable",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getLocalPosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getLocalPosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getLocalRotation" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getLocalRotation",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getMass" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getMass",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getMaterial" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getMaterial",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getMaterialId" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getMaterialId",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getNeighbours" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getNeighbours",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getPipedNeighbours" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getPipedNeighbours",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getRight" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getRight",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getShapeDescription" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getShapeDescription",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getShapeIcon" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getShapeIcon",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getShapeTitle" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getShapeTitle",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getShapeTypeColor" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getShapeTypeColor",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getShapeUuid" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getShapeUuid",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getUp" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getUp",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getVelocity" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getVelocity",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getWorldPosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getWorldPosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getWorldRotation" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getWorldRotation",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getXAxis" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getXAxis",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getYAxis" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getYAxis",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getZAxis" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.getZAxis",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setColor" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.shape.setColor",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"shapeExists" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.shapeExists",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"shapesInSphere" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.shape.shapesInSphere",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"transformDirection" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.shape.transformDirection",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"transformLocalPoint" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.shape.transformLocalPoint",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"transformPoint" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.shape.transformPoint",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"transformRotation" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.shape.transformRotation",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"uuidExists" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.shape.uuidExists",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"storage" : 
+	{
+		"load" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.storage.load",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"save" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.storage.save",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"saveAndSync" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.storage.saveAndSync",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"tool" : 
+	{
+		"checkLiftCollision" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.tool.checkLiftCollision",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"forceTool" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.tool.forceTool",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"interactState" : 
+		{
+			"hold" : 2.0,
+			"null" : 0.0,
+			"start" : 1.0,
+			"stop" : 3.0
+		},
+		"preloadRenderables" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.tool.preloadRenderables",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"uuidExists" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.tool.uuidExists",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"unit" : 
+	{
+		"createUnit" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected at least 2 arguments (got 0)",
+			"path" : "sm.unit.createUnit",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getAllUnits" : 
+		{
+			"path" : "sm.unit.getAllUnits",
+			"returnedValue" : "Empty Table",
+			"type" : "function"
+		}
+	},
+	"util" : 
+	{
+		"axesToQuat" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.util.axesToQuat",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"bezier2" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 4 arguments (got 0)",
+			"path" : "sm.util.bezier2",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"bezier3" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 5 arguments (got 0)",
+			"path" : "sm.util.bezier3",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"clamp" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.util.clamp",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"easing" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.util.easing",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"lerp" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.util.lerp",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"positiveModulo" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.util.positiveModulo",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"smootherstep" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.util.smootherstep",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"smoothstep" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.util.smoothstep",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"uuid" : 
+	{
+		"generateNamed" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.uuid.generateNamed",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"generateRandom" : 
+		{
+			"path" : "sm.uuid.generateRandom",
+			"type" : "function"
+		},
+		"getNil" : 
+		{
+			"path" : "sm.uuid.getNil",
+			"type" : "function"
+		},
+		"isNil" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.uuid.isNil",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"new" : 
+		{
+			"path" : "sm.uuid.new",
+			"type" : "function"
+		}
+	},
+	"vec3" : 
+	{
+		"bezier2" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 4 arguments (got 0)",
+			"path" : "sm.vec3.bezier2",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"bezier3" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 5 arguments (got 0)",
+			"path" : "sm.vec3.bezier3",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"closestAxis" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.vec3.closestAxis",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"cross" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.vec3.cross",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"dot" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.vec3.dot",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getRotation" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.vec3.getRotation",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getX" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.vec3.getX",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getY" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.vec3.getY",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getZ" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.vec3.getZ",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"length" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.vec3.length",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"length2" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.vec3.length2",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"lerp" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.vec3.lerp",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"max" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.vec3.max",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"min" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.vec3.min",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"new" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.vec3.new",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"normalize" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.vec3.normalize",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"one" : 
+		{
+			"path" : "sm.vec3.one",
+			"type" : "function"
+		},
+		"rotate" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 3 arguments (got 0)",
+			"path" : "sm.vec3.rotate",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"rotateX" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.vec3.rotateX",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"rotateY" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.vec3.rotateY",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"rotateZ" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.vec3.rotateZ",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"safeNormalize" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.vec3.safeNormalize",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setX" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.vec3.setX",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setY" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.vec3.setY",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setZ" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 2 arguments (got 0)",
+			"path" : "sm.vec3.setZ",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"zero" : 
+		{
+			"path" : "sm.vec3.zero",
+			"type" : "function"
+		}
+	},
+	"version" : "0.7.4.778",
+	"visualization" : 
+	{
+		"createBlueprint" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.visualization.createBlueprint",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"createBuilderGuide" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.visualization.createBuilderGuide",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getShapePlacementVisualization" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.visualization.getShapePlacementVisualization",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setBlockVisualization" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.visualization.setBlockVisualization",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setCreationBodies" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.visualization.setCreationBodies",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setCreationFreePlacement" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.visualization.setCreationFreePlacement",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setCreationFreePlacementPosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.visualization.setCreationFreePlacementPosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setCreationFreePlacementRotation" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.visualization.setCreationFreePlacementRotation",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setCreationValid" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.visualization.setCreationValid",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setCreationVisible" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.visualization.setCreationVisible",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setLiftLevel" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.visualization.setLiftLevel",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setLiftPosition" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.visualization.setLiftPosition",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setLiftValid" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.visualization.setLiftValid",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"setLiftVisible" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: calling client function from server callback.",
+			"path" : "sm.visualization.setLiftVisible",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	},
+	"world" : 
+	{
+		"createWorld" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.world.createWorld",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"destroyWorld" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.world.destroyWorld",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getCurrentWorld" : 
+		{
+			"path" : "sm.world.getCurrentWorld",
+			"type" : "function"
+		},
+		"getDirtySpheres" : 
+		{
+			"path" : "sm.world.getDirtySpheres",
+			"returnedValue" : "Empty Table",
+			"type" : "function"
+		},
+		"getId" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.world.getId",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"getLegacyCreativeWorld" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.world.getLegacyCreativeWorld",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"ids" : 
+		{
+			"anyWorld" : 65535.0,
+			"noWorld" : 65534.0
+		},
+		"isIndoor" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Expected 1 arguments (got 0)",
+			"path" : "sm.world.isIndoor",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"loadCell" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.world.loadCell",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"loadWorld" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.world.loadWorld",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		},
+		"reloadCell" : 
+		{
+			"error" : "[string \"...5f-a423-6edff6aa8afd/Scripts/CentralAPI.lua\"]:118: Sandbox violation: mismatching scriptTypeID.",
+			"path" : "sm.world.reloadCell",
+			"returnedValue" : "unknown",
+			"type" : "function"
+		}
+	}
+}
